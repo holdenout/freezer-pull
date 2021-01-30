@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "name": "Plain Bagel",
+      "category": "bagel",
+      "par": 1
+    },
+    {
+      "name": "Everything Bagel",
+      "category": "bagel",
+      "par": 1
+    },
+    {
+      "name": "Brownie",
+      "category": "brownie",
+      "par": 1
+    },
+    {
+      "name": "Almond Croissant",
+      "category": "croissant",
+      "par": 1
+    }
+  ]
+}
