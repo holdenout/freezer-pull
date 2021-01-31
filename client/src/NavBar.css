@@ -1,4 +1,6 @@
 .navbar {
+  overflow: auto;
+  white-space: nowrap;
   background-color: #00643c;
   color: #ffffff;
   padding: 0.5em;
