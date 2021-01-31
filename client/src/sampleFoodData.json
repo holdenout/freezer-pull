@@ -19,6 +19,12 @@
       "par": 1
     },
     {
+      "name": "Blueberry Muffin",
+      "id": "BM",
+      "category": "muffin",
+      "par": 1
+    },
+    {
       "name": "Brownie",
       "id": "Br",
       "category": "brownie",
