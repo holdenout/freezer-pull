@@ -13,8 +13,8 @@ export default function FoodList() {
   });
 
   return (
-    <div className="FoodList">
-      <ul>
+    <div className="food-list">
+      <ul className="food-items">
         {foodItems}
       </ul>
     </div>
