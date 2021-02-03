@@ -3,6 +3,18 @@ import sampleFoodData from './sampleFoodData.json';
 import Collapsible from './Collapsible.jsx';
 import './FoodList.css';
 
+const Content = (food) => {
+  const [carryOver, setCarryOver] = useState(0);
+
+  return (
+    <>
+      <button onClick={() => setCarryOver(carryOver === 0 ? 0 : carryOver - 1)}>-</button>
+      <span>{carryOver}</span>
+      <button onClick={() => setCarryOver(carryOver + 1)}>+</button>
+    </>
+  )
+}
+
 export default function FoodList() {
   const [isOpen, setOpen] = useState(null);
 
@@ -23,7 +35,7 @@ export default function FoodList() {
         <Collapsible
           open={isOpen === food.id}
           header={food.name}
-          content={`${food.name} content here.`}
+          content={<Content food={food} />}
           toggleOpen={() => toggleOpen(food.id)}
         />
       </li>
