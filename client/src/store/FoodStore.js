@@ -11,7 +11,7 @@ export const subscribe = (subscribers, subscriber) =>
   subscribers.concat(subscriber);
 
 export const unsubscribe = (subscribers, subscriber) =>
-  subscribers.filter((s) => s != subscriber);
+  subscribers.filter((s) => s !== subscriber);
 
 export const notify = (foodState, subscribers) =>
   subscribers.forEach((s) => s(foodState));
