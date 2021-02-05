@@ -41,9 +41,9 @@ export const FoodStoreFactory = (() => {
       return subscriber;
     },
     unsubscribe: (subscriber) => {
-      subscribers = unsubscribe(subscriber);
+      subscribers = unsubscribe(subscribers, subscriber);
     }
-  }
+  };
 });
 
 export const foodStore = FoodStoreFactory();
