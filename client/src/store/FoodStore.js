@@ -2,9 +2,9 @@ import * as R from 'ramda';
 
 export const addFood = (foodState, food) => {
   const sortByCategoryThenName = R.sortWith([
-    R.compose(R.toLower, R.prop("category")),
-    R.compose(R.toLower, R.prop("name"))
-  ])
+    R.ascend(R.compose(R.toLower, R.prop("category"))),
+    R.ascend(R.compose(R.toLower, R.prop("name")))
+  ]);
 
   return sortByCategoryThenName(foodState.concat(food));
 }
