@@ -1,6 +1,6 @@
 import './App.css';
-import NavBar from './NavBar.jsx';
-import FoodList from './FoodList';
+import NavBar from './components/NavBar.jsx';
+import FoodList from './components/FoodList';
 
 function App() {
   return (
