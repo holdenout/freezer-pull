@@ -9,4 +9,12 @@
   "jsxBracketSameLine": false,
   "arrowParens": "always",
   "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "**/*.css",
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
 }
