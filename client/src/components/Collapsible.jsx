@@ -1,4 +1,4 @@
-import './Collapsible.css';
+import "./Collapsible.css";
 
 export const Collapsible = ({open, header, content, toggleOpen}) => {
   return (
@@ -9,6 +9,6 @@ export const Collapsible = ({open, header, content, toggleOpen}) => {
       {open && <div className="collapsible-content">{content}</div>}
     </div>
   );
-}
+};
 
 export default Collapsible;

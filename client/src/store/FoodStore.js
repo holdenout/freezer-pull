@@ -1,13 +1,13 @@
-import * as R from 'ramda';
+import * as R from "ramda";
 
 export const addFood = (foodState, food) => {
   const sortByCategoryThenName = R.sortWith([
     R.ascend(R.compose(R.toLower, R.prop("category"))),
-    R.ascend(R.compose(R.toLower, R.prop("name")))
+    R.ascend(R.compose(R.toLower, R.prop("name"))),
   ]);
 
   return sortByCategoryThenName(foodState.concat(food));
-}
+};
 
 export const updateFood = (foodState, food) => {
   const index = foodState.findIndex((f) => f.id === food.id);
@@ -23,7 +23,7 @@ export const unsubscribe = (subscribers, subscriber) =>
 export const notify = (foodState, subscribers) =>
   subscribers.forEach((s) => s(foodState));
 
-export const FoodStoreFactory = (() => {
+export const FoodStoreFactory = () => {
   let foodState = [];
   let subscribers = [];
 
@@ -42,8 +42,8 @@ export const FoodStoreFactory = (() => {
     },
     unsubscribe: (subscriber) => {
       subscribers = unsubscribe(subscribers, subscriber);
-    }
+    },
   };
-});
+};
 
 export const foodStore = FoodStoreFactory();
