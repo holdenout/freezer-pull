@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar.jsx';
 import FoodList from './components/FoodList';
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <NavBar />

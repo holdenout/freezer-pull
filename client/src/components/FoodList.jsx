@@ -15,7 +15,7 @@ const Content = (food) => {
   )
 }
 
-export default function FoodList() {
+export const FoodList = () => {
   const [isOpen, setOpen] = useState(null);
 
   function toggleOpen(a) {
@@ -50,3 +50,5 @@ export default function FoodList() {
     </div>
   );
 }
+
+export default FoodList;

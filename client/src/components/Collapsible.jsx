@@ -1,6 +1,6 @@
 import './Collapsible.css';
 
-export default function Collapsible({open, header, content, toggleOpen}) {
+export const Collapsible = ({open, header, content, toggleOpen}) => {
   return (
     <div className="collapsible">
       <button className="collapsible-header" onClick={toggleOpen}>
@@ -10,3 +10,5 @@ export default function Collapsible({open, header, content, toggleOpen}) {
     </div>
   );
 }
+
+export default Collapsible;
