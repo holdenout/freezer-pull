@@ -1,10 +1,17 @@
-import {update} from 'ramda';
+import * as R from 'ramda';
 
-export const addFood = (foodState, food) => foodState.concat(food);
+export const addFood = (foodState, food) => {
+  const sortByCategoryThenName = R.sortWith([
+    R.compose(R.toLower, R.prop("category")),
+    R.compose(R.toLower, R.prop("name"))
+  ])
+
+  return sortByCategoryThenName(foodState.concat(food));
+}
 
 export const updateFood = (foodState, food) => {
   const index = foodState.findIndex((f) => f.id === food.id);
-  return update(index, food, foodState);
+  return R.update(index, food, foodState);
 };
 
 export const subscribe = (subscribers, subscriber) =>
