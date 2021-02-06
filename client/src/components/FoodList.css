@@ -15,14 +15,22 @@
 }
 
 .food-content {
+  margin: 10px;
   font-size: 150%;
   text-align: center;
 }
 
 .food-content button {
-  font-size: 100%;
+  font-size: 75%;
   background-color: inherit;
   border: none;
   cursor: pointer;
   outline: none;
+}
+
+.food-content input {
+  width: 2em;
+  border: none;
+  border-bottom: 3px solid black;
+  text-align: center;
 }

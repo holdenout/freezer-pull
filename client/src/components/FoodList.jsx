@@ -1,10 +1,21 @@
-import {useState} from "react";
+import {useState, useEffect, useRef} from "react";
 import Collapsible from "./Collapsible.jsx";
 import "./FoodList.css";
 
-const Content = ({food, updateCarryOver}) => {
+const Content = ({food, updateCarryOver, isOpen}) => {
+  const focusRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) focusRef.current.focus();
+  }, [isOpen]);
+
   const handleCarryOver = (newCarryOver) => {
     if (newCarryOver >= 0) updateCarryOver(food, newCarryOver);
+  };
+
+  const handleChange = (event) => {
+    const newVal = event.target.value === "" ? 0 : parseInt(event.target.value);
+    handleCarryOver(newVal);
   };
 
   return (
@@ -12,7 +23,13 @@ const Content = ({food, updateCarryOver}) => {
       <button onClick={() => handleCarryOver(food.carryOver - 1)}>
         &#x2796;
       </button>
-      <span>{food.carryOver}</span>
+      <input
+        className="carry-over"
+        type="tel"
+        value={food.carryOver}
+        onChange={handleChange}
+        ref={focusRef}
+      />
       <button onClick={() => handleCarryOver(food.carryOver + 1)}>
         &#x2795;
       </button>
@@ -33,7 +50,13 @@ export const FoodList = ({foodData, updateCarryOver}) => {
         <Collapsible
           open={isOpen === food.id}
           header={food.name}
-          content={<Content food={food} updateCarryOver={updateCarryOver} />}
+          content={
+            <Content
+              food={food}
+              updateCarryOver={updateCarryOver}
+              isOpen={isOpen === food.id}
+            />
+          }
           toggleOpen={() => toggleOpen(food.id)}
         />
       </li>
