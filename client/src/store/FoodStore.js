@@ -6,7 +6,12 @@ export const addFood = (foodState, food) => {
     R.ascend(R.compose(R.toLower, R.prop("name"))),
   ]);
 
-  return sortByCategoryThenName(foodState.concat(food));
+  // Throw error if food exists by name or id
+  if (R.none((f) => f.id === food.id || f.name === food.name, foodState)) {
+    return sortByCategoryThenName(foodState.concat(food));
+  } else {
+    throw new Error("Food item exists.");
+  }
 };
 
 export const updateFood = (foodState, food) => {
