@@ -1,12 +1,12 @@
 import "./App.css";
 import NavBar from "./components/NavBar.jsx";
-import FoodList from "./components/FoodList.jsx";
+import FoodListContainer from "./components/FoodListContainer.jsx";
 
 export const App = () => {
   return (
     <div className="App">
       <NavBar />
-      <FoodList />
+      <FoodListContainer />
     </div>
   );
 };

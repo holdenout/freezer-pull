@@ -13,3 +13,16 @@
 .food-items li:last-child {
   border-bottom: none;
 }
+
+.food-content {
+  font-size: 150%;
+  text-align: center;
+}
+
+.food-content button {
+  font-size: 100%;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
