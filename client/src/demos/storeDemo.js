@@ -48,4 +48,4 @@ foodStore.addFood(everythingBagel);
 foodStore.addFood(blueberryMuffin);
 foodStore.addFood(brownie);
 
-foodStore.updateFood(foodService.updateCarryOver(almondCroissant, 3));
+foodStore.updateFood(foodService.updateCarryover(almondCroissant, 3));

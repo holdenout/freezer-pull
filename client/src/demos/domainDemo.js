@@ -32,6 +32,6 @@ let brownie = foodService.createFood({
 });
 
 console.log(plainBagel);
-plainBagel = foodService.updateCarryOver(plainBagel, 3);
+plainBagel = foodService.updateCarryover(plainBagel, 3);
 console.log(plainBagel);
 console.log(almondCroissant, everythingBagel, blueberryMuffin, brownie);

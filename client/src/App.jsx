@@ -1,6 +1,6 @@
 import {Switch, Route, Link} from "react-router-dom";
 import LandingPage from "./components/pages/LandingPage.jsx";
-import CarryOverPage from "./components/pages/CarryOverPage.jsx";
+import CarryoverPage from "./components/pages/CarryoverPage.jsx";
 import PullPage from "./components/pages/PullPage.jsx";
 import NavBar from "./components/NavBar.jsx";
 import {getFoodData} from "./utilities/getFoodData.js";
@@ -16,11 +16,11 @@ export const App = () => {
       <Switch>
         <Route exact path="/">
           <LandingPage
-            toCarryOver={<Link to="/carryover">To Carryover</Link>}
+            toCarryover={<Link to="/carryover">To Carryover</Link>}
           />
         </Route>
         <Route path="/carryover">
-          <CarryOverPage />
+          <CarryoverPage />
         </Route>
         <Route path="/pull">
           <PullPage />

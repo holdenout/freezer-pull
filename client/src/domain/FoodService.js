@@ -3,20 +3,20 @@ export const Food = ({name, id, category, par}) => ({
   id: id,
   category: category,
   par: par,
-  carryOver: 0,
+  carryover: 0,
 });
 
 export const createFood = (foodFields) => {
   return Food(foodFields);
 };
 
-export const updateCarryOver = (food, carryOver) => {
-  return {...food, carryOver};
+export const updateCarryover = (food, carryover) => {
+  return {...food, carryover};
 };
 
 export const FoodServiceFactory = () => ({
   createFood,
-  updateCarryOver,
+  updateCarryover,
 });
 
 export const foodService = FoodServiceFactory();
