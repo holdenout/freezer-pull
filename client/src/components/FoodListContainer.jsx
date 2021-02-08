@@ -8,7 +8,6 @@ export const FoodListContainer = () => {
 
   const foodDataSubscriber = (foodState) => setFoodData(foodState);
 
-  // Initiate test data and subscribe to store
   useEffect(() => {
     foodStore.subscribe(foodDataSubscriber);
     return () => foodStore.unsubscribe(foodDataSubscriber);
