@@ -21,7 +21,7 @@ const Content = ({food, updateCarryOver, isOpen}) => {
   return (
     <div className="food-content">
       <button onClick={() => handleCarryOver(food.carryOver - 1)}>
-        &#x2796;
+        &#xFF0D;
       </button>
       <input
         className="carry-over"
@@ -31,7 +31,7 @@ const Content = ({food, updateCarryOver, isOpen}) => {
         ref={focusRef}
       />
       <button onClick={() => handleCarryOver(food.carryOver + 1)}>
-        &#x2795;
+        &#xFF0B;
       </button>
     </div>
   );

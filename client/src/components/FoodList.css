@@ -16,12 +16,13 @@
 
 .food-content {
   margin: 10px;
-  font-size: 150%;
   text-align: center;
 }
 
 .food-content button {
-  font-size: 75%;
+  font-size: 100%;
+  font-weight: bold;
+  color: #00643c;
   background-color: inherit;
   border: none;
   cursor: pointer;
@@ -29,8 +30,11 @@
 }
 
 .food-content input {
-  width: 2em;
+  font-size: 100%;
+  width: 1.5em;
   border: none;
-  border-bottom: 3px solid black;
+  outline: none;
+  caret-color: transparent;
+  border-bottom: 2.5px solid black;
   text-align: center;
 }
