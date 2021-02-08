@@ -1,6 +1,6 @@
 import FoodListContainer from "../FoodListContainer";
 
-export const CarryOverPage = () => {
+export const CarryoverPage = () => {
   return (
     <div>
       <FoodListContainer />
@@ -8,4 +8,4 @@ export const CarryOverPage = () => {
   );
 };
 
-export default CarryOverPage;
+export default CarryoverPage;

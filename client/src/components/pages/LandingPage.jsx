@@ -1,8 +1,8 @@
-export const LandingPage = ({toCarryOver}) => {
+export const LandingPage = ({toCarryover}) => {
   return (
     <div>
       <p>LandingPage under development</p>
-      {toCarryOver}
+      {toCarryover}
     </div>
   );
 };
