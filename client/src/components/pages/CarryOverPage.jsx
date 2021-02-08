@@ -6,6 +6,6 @@ export const CarryOverPage = () => {
       <FoodListContainer />
     </div>
   );
-}
+};
 
 export default CarryOverPage;

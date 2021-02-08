@@ -5,6 +5,6 @@ export const LandingPage = ({toCarryOver}) => {
       {toCarryOver}
     </div>
   );
-}
+};
 
 export default LandingPage;

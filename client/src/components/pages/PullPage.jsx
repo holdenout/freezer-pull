@@ -4,6 +4,6 @@ export const PullPage = () => {
       <p>PullPage under development</p>
     </div>
   );
-}
+};
 
 export default PullPage;
