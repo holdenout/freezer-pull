@@ -3,24 +3,14 @@ import FoodList from "./FoodList.jsx";
 import {foodStore} from "../store/FoodStore.js";
 import {foodService} from "../domain/FoodService.js";
 
-// Test data
-import sampleFoodData from "./sampleFoodData.json";
-
 export const FoodListContainer = () => {
-  const [foodData, setFoodData] = useState([]);
+  const [foodData, setFoodData] = useState(foodStore.getState());
 
   const foodDataSubscriber = (foodState) => setFoodData(foodState);
 
   // Initiate test data and subscribe to store
   useEffect(() => {
     foodStore.subscribe(foodDataSubscriber);
-    sampleFoodData.items.forEach((item) => {
-      try {
-        foodStore.addFood(foodService.createFood(item));
-      } catch (err) {
-        console.log(err);
-      }
-    });
     return () => foodStore.unsubscribe(foodDataSubscriber);
   }, []);
 
