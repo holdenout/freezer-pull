@@ -33,6 +33,7 @@ export const FoodStoreFactory = () => {
   let subscribers = [];
 
   return {
+    getState: () => foodState,
     addFood: (food) => {
       foodState = addFood(foodState, food);
       notify(foodState, subscribers);
