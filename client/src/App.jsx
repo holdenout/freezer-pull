@@ -3,14 +3,12 @@ import LandingPage from "./components/pages/LandingPage.jsx";
 import CarryOverPage from "./components/pages/CarryOverPage.jsx";
 import PullPage from "./components/pages/PullPage.jsx";
 import NavBar from "./components/NavBar.jsx";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Switch, Route, Link} from "react-router-dom";
 
 export const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <NavBar />
-      </div>
+    <div className="App">
+      <NavBar />
 
       <Switch>
         <Route exact path="/">
@@ -25,7 +23,7 @@ export const App = () => {
           <PullPage />
         </Route>
       </Switch>
-    </Router>
+    </div>
   );
 };
 
