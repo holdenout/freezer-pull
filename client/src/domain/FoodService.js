@@ -26,10 +26,15 @@ export const updateFoodProp = (food, updatedProp, updatedPropValue) => {
     unknown: () => {
       throw new Error("Food update unsuccessful.");
     },
-  }
+  };
 
-  return Object.freeze((propUpdaters[updatedProp] ?? propUpdaters["unknown"])(food, updatedPropValue));
-}
+  return Object.freeze(
+    (propUpdaters[updatedProp] ?? propUpdaters["unknown"])(
+      food,
+      updatedPropValue
+    )
+  );
+};
 
 export const FoodServiceFactory = () => ({
   createFood,

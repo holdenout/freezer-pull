@@ -15,7 +15,11 @@ export const FoodListContainer = () => {
 
   const updateState = (food, updatedProp, updatedPropValue) => {
     try {
-      const updatedFood = foodService.updateFoodProp(food, updatedProp, updatedPropValue)
+      const updatedFood = foodService.updateFoodProp(
+        food,
+        updatedProp,
+        updatedPropValue
+      );
       foodStore.updateFood(updatedFood);
     } catch (err) {
       console.log(err);
