@@ -13,14 +13,18 @@ export const FoodListContainer = () => {
     return () => foodStore.unsubscribe(foodDataSubscriber);
   }, []);
 
-  const updateCarryover = (food, carryover) => {
-    const updatedFood = foodService.updateCarryover(food, carryover);
-    foodStore.updateFood(updatedFood);
+  const updateState = (food, updatedProp, updatedPropValue) => {
+    try {
+      const updatedFood = foodService.updateFoodProp(food, updatedProp, updatedPropValue)
+      foodStore.updateFood(updatedFood);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div>
-      <FoodList foodData={foodData} updateCarryover={updateCarryover} />
+      <FoodList foodData={foodData} updateState={updateState} />
     </div>
   );
 };

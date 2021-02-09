@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react";
 import Collapsible from "./Collapsible.jsx";
 import "./FoodList.css";
 
-const Content = ({food, updateCarryover, isOpen}) => {
+const Content = ({food, updateState, isOpen}) => {
   const focusRef = useRef(null);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const Content = ({food, updateCarryover, isOpen}) => {
   }, [isOpen]);
 
   const handleCarryover = (newCarryover) => {
-    if (newCarryover >= 0) updateCarryover(food, newCarryover);
+    if (newCarryover >= 0) updateState(food, "carryover", newCarryover);
   };
 
   const handleChange = (event) => {
@@ -37,7 +37,7 @@ const Content = ({food, updateCarryover, isOpen}) => {
   );
 };
 
-export const FoodList = ({foodData, updateCarryover}) => {
+export const FoodList = ({foodData, updateState}) => {
   const [isOpen, setOpen] = useState(null);
 
   function toggleOpen(a) {
@@ -53,7 +53,7 @@ export const FoodList = ({foodData, updateCarryover}) => {
           content={
             <Content
               food={food}
-              updateCarryover={updateCarryover}
+              updateState={updateState}
               isOpen={isOpen === food.id}
             />
           }
