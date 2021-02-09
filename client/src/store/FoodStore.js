@@ -29,8 +29,8 @@ export const notify = (foodState, subscribers) =>
   subscribers.forEach((s) => s(foodState));
 
 export const FoodStoreFactory = () => {
-  let foodState = [];
-  let subscribers = [];
+  let foodState = Object.freeze([]);
+  let subscribers = Object.freeze([]);
 
   return {
     getState: () => foodState,
