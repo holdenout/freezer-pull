@@ -1,9 +1,9 @@
-import FoodListContainer from "../FoodListContainer";
+import FoodList from "../FoodList.jsx";
 
 export const CarryoverPage = () => {
   return (
     <div>
-      <FoodListContainer />
+      <FoodList />
     </div>
   );
 };

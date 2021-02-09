@@ -1,9 +1,8 @@
 import {useState, useEffect} from "react";
-import FoodList from "./FoodList.jsx";
 import {foodStore} from "../store/FoodStore.js";
 import {foodService} from "../domain/FoodService.js";
 
-export const FoodListContainer = () => {
+export const useStore = (propToUpdate = "unknown") => {
   const [foodData, setFoodData] = useState(foodStore.getState());
 
   const foodDataSubscriber = (foodState) => setFoodData(foodState);
@@ -13,11 +12,11 @@ export const FoodListContainer = () => {
     return () => foodStore.unsubscribe(foodDataSubscriber);
   }, []);
 
-  const updateState = (food, updatedProp, updatedPropValue) => {
+  const updateState = (food, updatedPropValue) => {
     try {
       const updatedFood = foodService.updateFoodProp(
         food,
-        updatedProp,
+        propToUpdate,
         updatedPropValue
       );
       foodStore.updateFood(updatedFood);
@@ -26,11 +25,5 @@ export const FoodListContainer = () => {
     }
   };
 
-  return (
-    <div>
-      <FoodList foodData={foodData} updateState={updateState} />
-    </div>
-  );
+  return [foodData, updateState];
 };
-
-export default FoodListContainer;

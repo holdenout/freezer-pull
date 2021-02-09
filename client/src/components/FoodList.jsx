@@ -1,5 +1,6 @@
 import {useState, useEffect, useRef} from "react";
 import Collapsible from "./Collapsible.jsx";
+import {useStore} from "./useStore.js";
 import "./FoodList.css";
 
 const Content = ({food, updateState, isOpen}) => {
@@ -10,7 +11,7 @@ const Content = ({food, updateState, isOpen}) => {
   }, [isOpen]);
 
   const handleCarryover = (newCarryover) => {
-    if (newCarryover >= 0) updateState(food, "carryover", newCarryover);
+    if (newCarryover >= 0) updateState(food, newCarryover);
   };
 
   const handleChange = (event) => {
@@ -37,8 +38,9 @@ const Content = ({food, updateState, isOpen}) => {
   );
 };
 
-export const FoodList = ({foodData, updateState}) => {
+export const FoodList = () => {
   const [isOpen, setOpen] = useState(null);
+  const [foodData, updateState] = useStore("carryover");
 
   function toggleOpen(a) {
     setOpen(isOpen === a ? null : a);
