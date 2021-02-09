@@ -7,8 +7,8 @@ export const FoodList = ({content}) => {
   const [isOpen, setOpen] = useState(null);
   const [foodData, updateState] = useStore("carryover");
 
-  function toggleOpen(a) {
-    setOpen(isOpen === a ? null : a);
+  const toggleOpen = (id) => {
+    setOpen(isOpen === id ? null : id);
   }
 
   const foodItems = foodData.map((food) => {
