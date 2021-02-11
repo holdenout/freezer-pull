@@ -1,4 +1,4 @@
-import {Switch, Route, Link} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import LandingPage from "./components/pages/LandingPage.jsx";
 import CarryoverPage from "./components/pages/CarryoverPage.jsx";
 import PullPage from "./components/pages/PullPage.jsx";
@@ -15,9 +15,7 @@ export const App = () => {
 
       <Switch>
         <Route exact path="/">
-          <LandingPage
-            toCarryover={<Link to="/carryover">To Carryover</Link>}
-          />
+          <LandingPage />
         </Route>
 
         <Route path="/carryover">

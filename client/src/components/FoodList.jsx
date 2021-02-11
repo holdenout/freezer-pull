@@ -3,7 +3,7 @@ import {useStore} from "./useStore.js";
 import Collapsible from "./Collapsible.jsx";
 import "./FoodList.css";
 
-export const FoodList = ({content}) => {
+export const FoodList = ({content, children}) => {
   const [isOpen, setOpen] = useState(null);
   const [foodData, updateState] = useStore("carryover");
 
@@ -27,6 +27,7 @@ export const FoodList = ({content}) => {
   return (
     <div className="food-list">
       <ul className="food-items">{foodItems}</ul>
+      {children}
     </div>
   );
 };

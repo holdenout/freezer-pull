@@ -41,8 +41,9 @@ const Content = ({food, updateState, isOpen}) => {
 export const CarryoverPage = () => {
   return (
     <div>
-      <FoodList content={(contentProps) => <Content {...contentProps} />} />
-      <Link to="/pull">Continue to freezer pull</Link>
+      <FoodList content={(contentProps) => <Content {...contentProps} />}>
+        <Link className="next" to="/pull">Continue to freezer pull</Link>
+      </FoodList>
     </div>
   );
 };
