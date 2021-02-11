@@ -12,3 +12,7 @@
   overflow: auto;
   white-space: nowrap;
 }
+
+.collapsible-content {
+  padding: 10px;
+}

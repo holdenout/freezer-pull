@@ -3,6 +3,7 @@
   text-align: left;
   margin: 5px;
   padding: 0;
+  margin-bottom: 1em;
   border: 1px solid black;
 }
 
@@ -15,7 +16,6 @@
 }
 
 .food-content {
-  margin: 10px;
   text-align: center;
 }
 
@@ -39,4 +39,12 @@
   caret-color: transparent;
   border-bottom: 2.5px solid black;
   text-align: center;
+}
+
+.next {
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 13px;
+  padding: 5px;
+  text-decoration: none;
 }
