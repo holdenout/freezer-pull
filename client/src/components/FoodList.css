@@ -22,7 +22,7 @@
 .food-content button {
   font-size: 100%;
   font-weight: bold;
-  color: #00643c;
+  color: var(--main-color);
   background-color: inherit;
   border: none;
   cursor: pointer;
