@@ -22,7 +22,6 @@ export const App = () => {
 
         <Route path="/carryover">
           <CarryoverPage />
-          <Link to="/pull">"Submit" placeholder</Link>
         </Route>
 
         <Route path="/pull">

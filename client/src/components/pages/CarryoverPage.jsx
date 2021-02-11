@@ -1,4 +1,5 @@
 import {useEffect, useRef} from "react";
+import {Link} from "react-router-dom";
 import FoodList from "../FoodList.jsx";
 
 // Content to display inside collapsible
@@ -41,6 +42,7 @@ export const CarryoverPage = () => {
   return (
     <div>
       <FoodList content={(contentProps) => <Content {...contentProps} />} />
+      <Link to="/pull">Continue to freezer pull</Link>
     </div>
   );
 };
