@@ -9,4 +9,6 @@
   font-size: inherit;
   font-weight: bold;
   cursor: pointer;
+  overflow: auto;
+  white-space: nowrap;
 }
