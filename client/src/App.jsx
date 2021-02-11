@@ -19,9 +19,12 @@ export const App = () => {
             toCarryover={<Link to="/carryover">To Carryover</Link>}
           />
         </Route>
+
         <Route path="/carryover">
           <CarryoverPage />
+          <Link to="/pull">"Submit" placeholder</Link>
         </Route>
+
         <Route path="/pull">
           <PullPage />
         </Route>

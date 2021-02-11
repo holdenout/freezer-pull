@@ -3,7 +3,26 @@
   white-space: nowrap;
   background-color: #00643c;
   color: #ffffff;
-  padding: 0.5em;
   text-align: left;
   font-weight: bold;
+  --nav-height: 2em;
+  height: var(--nav-height);
+}
+
+.navbar > * {
+  display: inline-block;
+  color: inherit;
+  height: var(--nav-height);
+  line-height: var(--nav-height);
+}
+
+.back {
+  text-align: center;
+  border-right: 1px solid white;
+  width: 2em;
+  text-decoration: none;
+}
+
+.title {
+  padding-left: 0.5em;
 }
