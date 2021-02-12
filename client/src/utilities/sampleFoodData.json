@@ -4,31 +4,31 @@
       "name": "Almond Croissant",
       "id": "ACt",
       "category": "croissant",
-      "par": 1
+      "par": 10
     },
     {
       "name": "Plain Bagel",
       "id": "PB",
       "category": "bagel",
-      "par": 1
+      "par": 6
     },
     {
       "name": "Everything Bagel",
       "id": "EB",
       "category": "bagel",
-      "par": 1
+      "par": 3
     },
     {
       "name": "Blueberry Muffin",
       "id": "BM",
       "category": "muffin",
-      "par": 1
+      "par": 6
     },
     {
       "name": "Brownie",
       "id": "Br",
       "category": "brownie",
-      "par": 1
+      "par": 4
     }
   ]
 }
