@@ -5,6 +5,7 @@ export const Food = ({name, id, category, par}) => ({
   par: par,
   carryover: 0,
   pull: 0,
+  pullSubmitted: false,
 });
 
 export const createFood = (foodFields) => {
@@ -23,6 +24,7 @@ export const updateFoodProp = (food, updatedProp, updatedPropValue) => {
   const propUpdaters = {
     carryover: updateCarryover,
     pull: updatePull,
+    pullSubmitted: (pullSubmitted) => {return {...food, pullSubmitted}},
     unknown: () => {
       throw new Error("Food update unsuccessful.");
     },
