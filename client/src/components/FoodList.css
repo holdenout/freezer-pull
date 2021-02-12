@@ -22,6 +22,7 @@
 .food-content button {
   font-size: 100%;
   font-weight: bold;
+  font-family: inherit;
   color: var(--main-color);
   background-color: inherit;
   border: 2px solid var(--main-color);
@@ -41,10 +42,29 @@
   text-align: center;
 }
 
+.food-content .submit-food {
+  font-weight: normal;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 13px;
+  padding: 5px;
+}
+
 .next {
   background-color: var(--main-color);
   color: white;
   border-radius: 13px;
   padding: 5px;
   text-decoration: none;
+}
+
+.info {
+  margin-bottom: 0.5em;
+}
+
+.info > div {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
 }
