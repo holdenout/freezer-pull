@@ -1,17 +1,19 @@
 import {useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
+import {useStore} from "../useStore.js";
 import FoodList from "../FoodList.jsx";
 
 // Content to display inside collapsible
-const Content = ({food, updateState, isOpen}) => {
-  const focusRef = useRef(null);
+const Content = ({food, isOpen}) => {
+  const [, updateCarryover] = useStore(["carryover"]);
 
+  const focusRef = useRef(null);
   useEffect(() => {
     if (isOpen) focusRef.current.focus();
   }, [isOpen]);
 
   const handleCarryover = (newCarryover) => {
-    if (newCarryover >= 0) updateState(food, newCarryover);
+    if (newCarryover >= 0) updateCarryover(food, newCarryover);
   };
 
   const handleChange = (event) => {
@@ -39,9 +41,11 @@ const Content = ({food, updateState, isOpen}) => {
 };
 
 export const CarryoverPage = () => {
+  const [foodData] = useStore();
+
   return (
     <div>
-      <FoodList content={(contentProps) => <Content {...contentProps} />} propToUpdate="carryover">
+      <FoodList foodData={foodData} content={(contentProps) => <Content {...contentProps} />}>
         <Link className="next" to="/pull">Continue to freezer pull</Link>
       </FoodList>
     </div>

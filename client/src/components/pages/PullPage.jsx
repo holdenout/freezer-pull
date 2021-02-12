@@ -1,10 +1,12 @@
 import {useState, useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
+import {useStore} from "../useStore.js";
 import FoodList from "../FoodList.jsx";
 
 // Content to display inside collapsible
-const Content = ({food, updateState, isOpen}) => {
-  const [pull, setPull] = useState(food.par - food.carryover);
+const Content = ({food, isOpen}) => {
+  const [pull, setPull] = useState(food.pullSubmitted ? food.pull : food.par - food.carryover);
+  const [, updatePull, updatePullSubmitted] = useStore(["pull", "pullSubmitted"])
 
   const focusRef = useRef(null);
   useEffect(() => {
@@ -19,6 +21,11 @@ const Content = ({food, updateState, isOpen}) => {
   const handleChange = (event) => {
     const newVal = event.target.value === "" ? 0 : parseInt(event.target.value);
     handlePull(newVal);
+  };
+
+  const handleSubmit = () => {
+    const updatedFood = updatePull(food, pull);
+    updatePullSubmitted(updatedFood, true);
   };
 
   return (
@@ -42,16 +49,18 @@ const Content = ({food, updateState, isOpen}) => {
         </button>
       </div>
       <div>
-        <button className="submit-food" onClick="">Submit (non-functional)</button>
+        <button className="submit-food" onClick={handleSubmit}>Submit (non-functional)</button>
       </div>
     </div>
   );
 };
 
 export const PullPage = () => {
+  const [foodData] = useStore();
+
   return (
     <div>
-      <FoodList content={(contentProps) => <Content {...contentProps} />} propToUpdate="pull">
+      <FoodList foodData={foodData} content={(contentProps) => <Content {...contentProps} />}>
         <Link className="next" to="/">Submit pull (non-functional)</Link>
       </FoodList>
     </div>

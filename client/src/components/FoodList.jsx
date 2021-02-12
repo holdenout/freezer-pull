@@ -1,11 +1,9 @@
 import {useState} from "react";
-import {useStore} from "./useStore.js";
 import Collapsible from "./Collapsible.jsx";
 import "./FoodList.css";
 
-export const FoodList = ({content, propToUpdate, children}) => {
+export const FoodList = ({foodData, content, children}) => {
   const [isOpen, setOpen] = useState(null);
-  const [foodData, updateState] = useStore(propToUpdate);
 
   const toggleOpen = (id) => {
     setOpen(isOpen === id ? null : id);
@@ -17,7 +15,7 @@ export const FoodList = ({content, propToUpdate, children}) => {
         <Collapsible
           open={isOpen === food.id}
           header={food.name}
-          content={content({food, updateState, isOpen})}
+          content={content({food, isOpen})}
           toggleOpen={() => toggleOpen(food.id)}
         />
       </li>

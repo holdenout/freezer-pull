@@ -24,7 +24,7 @@ export const updateFoodProp = (food, updatedProp, updatedPropValue) => {
   const propUpdaters = {
     carryover: updateCarryover,
     pull: updatePull,
-    pullSubmitted: (pullSubmitted) => {return {...food, pullSubmitted}},
+    pullSubmitted: (food, pullSubmitted) => {return {...food, pullSubmitted}},
     unknown: () => {
       throw new Error(`Food update of ${updatedProp} for ${food.name} unsuccessful.`);
     },

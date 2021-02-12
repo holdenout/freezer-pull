@@ -14,8 +14,9 @@ export const useStore = (propsToUpdate = ["unknown"]) => {
   }, []);
 
   const updateState = R.curry((prop, food, updatedPropValue) => {
+    let updatedFood = food;
     try {
-      const updatedFood = foodService.updateFoodProp(
+      updatedFood = foodService.updateFoodProp(
         food,
         prop,
         updatedPropValue
@@ -23,7 +24,9 @@ export const useStore = (propsToUpdate = ["unknown"]) => {
       foodStore.updateFood(updatedFood);
     } catch (err) {
       console.log(err);
+      updatedFood = food;
     }
+    return updatedFood;
   });
 
   const stateUpdaters = R.map(updateState, propsToUpdate);
