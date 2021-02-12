@@ -10,12 +10,16 @@ export const NavBar = (props) => {
         </Route>
 
         <Route path="/carryover">
-          <Link to="/" className="back">&#xff1c;</Link>
+          <Link to="/" className="back">
+            &#xff1c;
+          </Link>
           <div className="title">Carryover</div>
         </Route>
 
         <Route path="/pull">
-          <Link to="/carryover" className="back">&#xff1c;</Link>
+          <Link to="/carryover" className="back">
+            &#xff1c;
+          </Link>
           <div className="title">Pull</div>
         </Route>
       </Switch>

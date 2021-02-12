@@ -45,8 +45,13 @@ export const CarryoverPage = () => {
 
   return (
     <div>
-      <FoodList foodData={foodData} content={(contentProps) => <Content {...contentProps} />}>
-        <Link className="next" to="/pull">Continue to freezer pull</Link>
+      <FoodList
+        foodData={foodData}
+        content={(contentProps) => <Content {...contentProps} />}
+      >
+        <Link className="next" to="/pull">
+          Continue to freezer pull
+        </Link>
       </FoodList>
     </div>
   );

@@ -5,8 +5,13 @@ import FoodList from "../FoodList.jsx";
 
 // Content to display inside collapsible
 const Content = ({food, isOpen}) => {
-  const [pull, setPull] = useState(food.pullSubmitted ? food.pull : food.par - food.carryover);
-  const [, updatePull, updatePullSubmitted] = useStore(["pull", "pullSubmitted"])
+  const [pull, setPull] = useState(
+    food.pullSubmitted ? food.pull : food.par - food.carryover
+  );
+  const [, updatePull, updatePullSubmitted] = useStore([
+    "pull",
+    "pullSubmitted",
+  ]);
 
   const focusRef = useRef(null);
   useEffect(() => {
@@ -31,12 +36,11 @@ const Content = ({food, isOpen}) => {
   return (
     <div className="food-content">
       <div className="info">
-        <div>Carryover: {food.carryover}</div><div>Par: {food.par}</div>
+        <div>Carryover: {food.carryover}</div>
+        <div>Par: {food.par}</div>
       </div>
       <div>
-        <button onClick={() => handlePull(pull - 1)}>
-          &#xFF0D;
-        </button>
+        <button onClick={() => handlePull(pull - 1)}>&#xFF0D;</button>
         <input
           className="pull"
           type="tel"
@@ -44,12 +48,12 @@ const Content = ({food, isOpen}) => {
           onChange={handleChange}
           ref={focusRef}
         />
-        <button onClick={() => handlePull(pull + 1)}>
-          &#xFF0B;
-        </button>
+        <button onClick={() => handlePull(pull + 1)}>&#xFF0B;</button>
       </div>
       <div>
-        <button className="submit-food" onClick={handleSubmit}>Submit (non-functional)</button>
+        <button className="submit-food" onClick={handleSubmit}>
+          Submit (non-functional)
+        </button>
       </div>
     </div>
   );
@@ -60,8 +64,13 @@ export const PullPage = () => {
 
   return (
     <div>
-      <FoodList foodData={foodData} content={(contentProps) => <Content {...contentProps} />}>
-        <Link className="next" to="/">Submit pull (non-functional)</Link>
+      <FoodList
+        foodData={foodData}
+        content={(contentProps) => <Content {...contentProps} />}
+      >
+        <Link className="next" to="/">
+          Submit pull (non-functional)
+        </Link>
       </FoodList>
     </div>
   );

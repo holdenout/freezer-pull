@@ -4,7 +4,9 @@ export const LandingPage = ({toCarryover}) => {
   return (
     <div>
       <p>LandingPage under development</p>
-      <Link className="next" to="/carryover">Begin carryover count</Link>
+      <Link className="next" to="/carryover">
+        Begin carryover count
+      </Link>
     </div>
   );
 };

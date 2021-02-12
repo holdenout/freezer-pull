@@ -7,7 +7,7 @@ export const FoodList = ({foodData, content, children}) => {
 
   const toggleOpen = (id) => {
     setOpen(isOpen === id ? null : id);
-  }
+  };
 
   const foodItems = foodData.map((food) => {
     return (

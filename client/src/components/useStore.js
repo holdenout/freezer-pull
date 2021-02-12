@@ -16,11 +16,7 @@ export const useStore = (propsToUpdate = ["unknown"]) => {
   const updateState = R.curry((prop, food, updatedPropValue) => {
     let updatedFood = food;
     try {
-      updatedFood = foodService.updateFoodProp(
-        food,
-        prop,
-        updatedPropValue
-      );
+      updatedFood = foodService.updateFoodProp(food, prop, updatedPropValue);
       foodStore.updateFood(updatedFood);
     } catch (err) {
       console.log(err);
