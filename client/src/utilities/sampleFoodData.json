@@ -57,13 +57,6 @@
       "par": 7
     },
     {
-      "name": "Brownie",
-      "id": "ChB",
-      "category": "brownie",
-      "innerPack": 2,
-      "par": 6
-    },
-    {
       "name": "Birthday Cake Pop",
       "id": "BCP",
       "category": "cakepop",
@@ -83,13 +76,6 @@
       "category": "cakepop",
       "innerPack": 3,
       "par": 9
-    },
-    {
-      "name": "Birthday Cake Pop",
-      "id": "BCP",
-      "category": "cakepop",
-      "innerPack": 3,
-      "par": 15
     },
     {
       "name": "Cinnamon Coffee Cake",
