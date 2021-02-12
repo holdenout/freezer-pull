@@ -1,8 +1,9 @@
 import {useState, useEffect} from "react";
+import * as R from "ramda";
 import {foodStore} from "../store/FoodStore.js";
 import {foodService} from "../domain/FoodService.js";
 
-export const useStore = (propToUpdate = "unknown") => {
+export const useStore = (propsToUpdate = ["unknown"]) => {
   const [foodData, setFoodData] = useState(foodStore.getState());
 
   const foodDataSubscriber = (foodState) => setFoodData(foodState);
@@ -12,18 +13,20 @@ export const useStore = (propToUpdate = "unknown") => {
     return () => foodStore.unsubscribe(foodDataSubscriber);
   }, []);
 
-  const updateState = (food, updatedPropValue) => {
+  const updateState = R.curry((prop, food, updatedPropValue) => {
     try {
       const updatedFood = foodService.updateFoodProp(
         food,
-        propToUpdate,
+        prop,
         updatedPropValue
       );
       foodStore.updateFood(updatedFood);
     } catch (err) {
       console.log(err);
     }
-  };
+  });
 
-  return [foodData, updateState];
+  const stateUpdaters = R.map(updateState, propsToUpdate);
+
+  return [foodData, ...stateUpdaters];
 };
