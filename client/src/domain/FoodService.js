@@ -26,7 +26,7 @@ export const updateFoodProp = (food, updatedProp, updatedPropValue) => {
     pull: updatePull,
     pullSubmitted: (pullSubmitted) => {return {...food, pullSubmitted}},
     unknown: () => {
-      throw new Error("Food update unsuccessful.");
+      throw new Error(`Food update of ${updatedProp} for ${food.name} unsuccessful.`);
     },
   };
 
