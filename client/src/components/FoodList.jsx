@@ -13,15 +13,22 @@ export const FoodList = ({foodData, content, children}) => {
 
   const handleSearch = ({target: {value: newSearch}}) => {
     setSearch(newSearch);
-    setFilteredFoodData(foodData.filter((food) => {
-      return food.name.toLowerCase().includes(newSearch.toLowerCase());
-    }));
+    setFilteredFoodData(
+      foodData.filter((food) => {
+        return food.name.toLowerCase().includes(newSearch.toLowerCase());
+      })
+    );
   };
 
   return (
     <div className="food-list">
       <div className="search">
-        <input type="text" placeholder="Search" value={search} onChange={handleSearch} />
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={handleSearch}
+        />
         <span className="clear">&#x2715;</span>
       </div>
       <ul className="food-items">
