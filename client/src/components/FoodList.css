@@ -3,7 +3,6 @@
   text-align: left;
   margin: 5px;
   padding: 0;
-  margin-bottom: 1em;
   border: 1px solid black;
 }
 
@@ -52,10 +51,12 @@
 }
 
 .next {
+  display: inline-block;
   background-color: var(--main-color);
   color: white;
   border-radius: 13px;
   padding: 5px;
+  margin-bottom: 9px;
   text-decoration: none;
 }
 
