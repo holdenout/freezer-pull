@@ -1,0 +1,19 @@
+.scroll-button {
+  position: fixed;
+  height: 2em;
+  width: 2em;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--main-color);
+  clip-path: circle(1em);
+  color: white;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+.triangle-up {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  clip-path: polygon(50% 25%, 20% 65%, 80% 65%);
+}
