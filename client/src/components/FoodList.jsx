@@ -1,5 +1,6 @@
 import {useState} from "react";
 import Collapsible from "./Collapsible.jsx";
+import {ScrollToTopButton} from "./ScrollToTopButton.jsx";
 import "./FoodList.css";
 
 export const FoodList = ({foodData, content, children}) => {
@@ -46,6 +47,7 @@ export const FoodList = ({foodData, content, children}) => {
         })}
       </ul>
       {children}
+      <ScrollToTopButton />
     </div>
   );
 };
