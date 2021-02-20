@@ -1,11 +1,11 @@
 .scroll-button {
   position: fixed;
-  height: 2em;
-  width: 2em;
+  height: 3em;
+  width: 3em;
   bottom: 1rem;
   right: 1rem;
   background-color: var(--main-color);
-  clip-path: circle(1em);
+  clip-path: circle(50%);
   color: white;
   font-size: 100%;
   cursor: pointer;
