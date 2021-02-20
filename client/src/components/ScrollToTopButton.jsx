@@ -22,9 +22,10 @@ export const ScrollToTopButton = () => {
   };
 
   return (
-    visible &&
+    visible && (
       <div className="scroll-button" onClick={handleClick}>
         <div className="triangle-up" />
       </div>
+    )
   );
 };
