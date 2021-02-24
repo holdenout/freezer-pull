@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+#logs
+*.log
+npm-debug.log*
+
+# environment variables
+.env
+.env.test
+.env*.local
+
+# misc
+.DS_Store
+.eslintcache
+*.swp
