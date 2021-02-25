@@ -4,147 +4,147 @@
       "name": "Almond Croissant",
       "code": "ACt",
       "category": "croissant",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 12
     },
     {
       "name": "Plain Bagel",
       "code": "PB",
       "category": "bagel",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 13
     },
     {
       "name": "Everything Bagel",
       "code": "EB",
       "category": "bagel",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 14
     },
     {
       "name": "Cinnamon Raisin Bagel",
       "code": "CRB",
       "category": "bagel",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 6
     },
     {
       "name": "Sprouted Grain Bagel",
       "code": "SGB",
       "category": "bagel",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 5
     },
     {
       "name": "Blueberry Muffin",
       "code": "BLU",
       "category": "muffin",
-      "innerPack": 3,
+      "inner_pack": 3,
       "par": 6
     },
     {
       "name": "Brownie",
       "code": "Br",
       "category": "brownie",
-      "innerPack": 2,
+      "inner_pack": 2,
       "par": 6
     },
     {
       "name": "Chocolate Chip Cookie",
       "code": "ChCC",
       "category": "cookie",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 7
     },
     {
       "name": "Birthday Cake Pop",
       "code": "BCP",
       "category": "cakepop",
-      "innerPack": 3,
+      "inner_pack": 3,
       "par": 15
     },
     {
       "name": "Chocolate Cake Pop",
       "code": "ChCP",
       "category": "cakepop",
-      "innerPack": 3,
+      "inner_pack": 3,
       "par": 12
     },
     {
       "name": "Cookie Dough Cake Pop",
       "code": "CDCP",
       "category": "cakepop",
-      "innerPack": 3,
+      "inner_pack": 3,
       "par": 9
     },
     {
       "name": "Cinnamon Coffee Cake",
       "code": "CCC",
       "category": "cake",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 9
     },
     {
       "name": "Pumpkin Loaf",
       "code": "PKL",
       "category": "loaf",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 14
     },
     {
       "name": "Banana Nut Bread",
       "code": "BNL",
       "category": "loaf",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 12
     },
     {
       "name": "Iced Lemon Loaf",
       "code": "LL",
       "category": "loaf",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 12
     },
     {
       "name": "Butter Croissant",
       "code": "Ct",
       "category": "croissant",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 15
     },
     {
       "name": "Chocolate Croissant",
       "code": "ChCt",
       "category": "croissant",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 20
     },
     {
       "name": "Blueberry Scone",
       "code": "BSc",
       "category": "scone",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 7
     },
     {
       "name": "Petite Vanilla Bean Scone",
       "code": "PvBS",
       "category": "scone",
-      "innerPack": 4,
+      "inner_pack": 4,
       "par": 8
     },
     {
       "name": "Cheese Danish",
       "code": "CD",
       "category": "danish",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 15
     },
     {
       "name": "Glazed Doughnut",
       "code": "GLD",
       "category": "doughnut",
-      "innerPack": 1,
+      "inner_pack": 1,
       "par": 8
     }
   ]
