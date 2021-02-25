@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const dbConfig = require("../models/dbConfig.js");
+
 const {items} = require("./sampleFoodData.json");
 
 /* Create db connection */
@@ -31,7 +32,8 @@ const queries = {
     carryover TINYINT UNSIGNED NOT NULL,
     pulled TINYINT UNSIGNED NOT NULL,
     PRIMARY KEY(pull_id, food_item_id)
-  );`
+  );`,
+  insertValue: "INSERT INTO food_items SET ?;"
 };
 
 /* Create database and tables */
@@ -63,6 +65,13 @@ const initDb = () => {
     connection.query(queries.createFoodItemPull, (err) => {
       if (err) throw err;
       console.log("Created food_item_pull table.");
+    });
+
+    items.forEach((item) => {
+      connection.query(queries.insertValue, item, (err) => {
+        if (err) throw err;
+        console.log("Added sample food_items.");
+      });
     });
 
     connection.end();
