@@ -11,8 +11,8 @@ const connection = mysql.createConnection({
 
 /* Create sql queries */
 const queries = {
-  createdb: "CREATE DATABASE IF NOT EXISTS freezer_pull_db;",
-  use: "USE freezer_pull_db;",
+  createdb: "CREATE DATABASE IF NOT EXISTS freezer_pull;",
+  use: "USE freezer_pull;",
   createFoodItems: `CREATE TABLE IF NOT EXISTS food_items (
     id SMALLINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -47,7 +47,7 @@ const initDb = () => {
 
     connection.query(queries.use, (err) => {
       if (err) throw err;
-      console.log("Using freezer_pull_db.");
+      console.log("Using freezer_pull.");
     });
 
     connection.query(queries.createFoodItems, (err) => {
