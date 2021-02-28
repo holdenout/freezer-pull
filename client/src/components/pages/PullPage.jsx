@@ -6,7 +6,9 @@ import FoodList from "../FoodList.jsx";
 // Content to display inside collapsible
 const Content = ({food, isOpen}) => {
   const [pull, setPull] = useState(
-    food.pullSubmitted ? food.pull : food.par - food.carryover
+    food.pullSubmitted
+      ? food.pull
+      : Math.ceil((food.par - food.carryover) / food.innerPack) * food.innerPack
   );
   const [, updatePull, updatePullSubmitted] = useStore([
     "pull",
@@ -19,7 +21,6 @@ const Content = ({food, isOpen}) => {
   }, [isOpen]);
 
   const handlePull = (newPullAmount) => {
-    // if (newPullAmount >= 0) updateState(food, newPullAmount);
     if (newPullAmount >= 0) setPull(newPullAmount);
   };
 
@@ -40,7 +41,9 @@ const Content = ({food, isOpen}) => {
         <div>Par: {food.par}</div>
       </div>
       <div>
-        <button onClick={() => handlePull(pull - 1)}>&#xFF0D;</button>
+        <button onClick={() => handlePull(pull - food.innerPack)}>
+          &#xFF0D;
+        </button>
         <input
           className="pull"
           type="tel"
@@ -48,7 +51,9 @@ const Content = ({food, isOpen}) => {
           onChange={handleChange}
           ref={focusRef}
         />
-        <button onClick={() => handlePull(pull + 1)}>&#xFF0B;</button>
+        <button onClick={() => handlePull(pull + food.innerPack)}>
+          &#xFF0B;
+        </button>
       </div>
       <div>
         <button className="submit-food" onClick={handleSubmit}>

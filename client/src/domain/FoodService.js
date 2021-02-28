@@ -1,7 +1,8 @@
-export const Food = ({name, id, category, par}) => ({
+export const Food = ({name, id, category, innerPack, par}) => ({
   name: name,
   id: id,
   category: category,
+  innerPack: innerPack,
   par: par,
   carryover: 0,
   pull: 0,
