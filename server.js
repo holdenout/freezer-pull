@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const foodRouter = require("./api/routes/foodRoutes.js");
+const pullRouter = require("./api/routes/pullRoutes.js");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/food", foodRouter);
+app.use("/pull", pullRouter);
 
 // set port, listen for requests
 app.listen(4000, () => {
