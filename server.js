@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const foodRouter = require("./api/routes/foodRoutes.js");
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({message: "freezer-pull app running"});
 });
+
+app.use("/food", foodRouter);
 
 // set port, listen for requests
 app.listen(4000, () => {
