@@ -4,5 +4,5 @@ module.exports = {
   HOST: "localhost",
   USER: "test",
   PASSWORD: "password",
-  DB: "freezer_pull_db"
+  DB: "freezer_pull"
 };
