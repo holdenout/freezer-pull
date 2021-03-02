@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const foodRouter = require("./api/routes/foodRoutes.js");
 const pullRouter = require("./api/routes/pullRoutes.js");
 
@@ -10,6 +11,9 @@ app.use(bodyParser.json());
 
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// enable CORS
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json({message: "freezer-pull app running"});
