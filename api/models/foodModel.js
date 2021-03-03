@@ -10,7 +10,7 @@ const Food = ({name, code, category, inner_pack, par}) => {
 
 // get all
 Food.getAll = (req, res) => {
-  db.query("SELECT * FROM food_items", (err, data) => {
+  db.query("SELECT * FROM food_items;", (err, data) => {
     if (err) throw err;
     res.status(200).send(data);
   });
@@ -18,7 +18,7 @@ Food.getAll = (req, res) => {
 
 // get one by id
 Food.getById = (req, res) => {
-  db.query("SELECT * FROM food_items WHERE id = ?", req.params.foodId, (err, data) => {
+  db.query("SELECT * FROM food_items WHERE id = ?;", req.params.foodId, (err, data) => {
     if (err) throw err;
     res.status(200).send(data);
   });
