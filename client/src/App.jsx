@@ -3,12 +3,12 @@ import LandingPage from "./components/pages/LandingPage.jsx";
 import CarryoverPage from "./components/pages/CarryoverPage.jsx";
 import PullPage from "./components/pages/PullPage.jsx";
 import NavBar from "./components/NavBar.jsx";
-import {getFoodData} from "./utilities/getFoodData.js";
+import {getSampleFoodData} from "./util/getSampleFoodData.js";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./App.css";
 
 export const App = () => {
-  getFoodData();
+  getSampleFoodData();
 
   return (
     <div className="App">

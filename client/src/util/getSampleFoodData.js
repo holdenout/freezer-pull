@@ -3,7 +3,7 @@ import {foodService} from "../domain/FoodService.js";
 import sampleFoodData from "./sampleFoodData.json";
 
 // Get sample food data and add to store
-export const getFoodData = () => {
+export const getSampleFoodData = () => {
   sampleFoodData.items.forEach((item) => {
     try {
       foodStore.addFood(foodService.createFood(item));
