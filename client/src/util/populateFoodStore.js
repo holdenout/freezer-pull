@@ -16,12 +16,6 @@ export const populateFoodStore = async () => {
     console.log(err);
   }
 
-  // Rename keys
-  allFood = allFood.reduce((acc, curr) => {
-    let {inner_pack: innerPack, ...rest} = curr;
-    return acc.concat([{innerPack, ...rest}]);
-  }, []);
-
   // Add db food to store
   allFood.forEach((item) => {
     try {

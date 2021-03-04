@@ -11,10 +11,16 @@ const Food = ({name, code, category, inner_pack, par}) => {
 // get all
 Food.getAll = (req, res) => {
   db.query(`SELECT sku, name, code, category, inner_pack, par
-            FROM food_items WHERE active=true;`, (err, data) => {
-    if (err) throw err;
-    res.status(200).send(data);
-  });
+            FROM food_items WHERE active=true;`,
+    (err, data) => {
+      if (err) throw err;
+      const cleanedData = data.reduce((acc, curr) => {
+        const {inner_pack: innerPack, ...rest} = curr;
+        return acc.concat([{innerPack, ...rest}]);
+      }, []);
+      res.status(200).send(cleanedData);
+    }
+  );
 }
 
 // get one by SKU
