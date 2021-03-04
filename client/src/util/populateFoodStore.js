@@ -18,8 +18,8 @@ export const populateFoodStore = async () => {
 
   // Rename keys
   allFood = allFood.reduce((acc, curr) => {
-    let {inner_pack: innerPack, code: id, id: discard, ...rest} = curr;
-    return acc.concat([{innerPack, id, ...rest}]);
+    let {inner_pack: innerPack, ...rest} = curr;
+    return acc.concat([{innerPack, ...rest}]);
   }, []);
 
   // Add db food to store

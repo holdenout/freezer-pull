@@ -1,148 +1,169 @@
 {
   "items": [
     {
+      "sku": 1001,
       "name": "Almond Croissant",
-      "id": "ACt",
+      "code": "ACt",
       "category": "croissant",
       "innerPack": 1,
       "par": 12
     },
     {
+      "sku": 1002,
       "name": "Plain Bagel",
-      "id": "PB",
+      "code": "PB",
       "category": "bagel",
       "innerPack": 1,
       "par": 13
     },
     {
+      "sku": 1003,
       "name": "Everything Bagel",
-      "id": "EB",
+      "code": "EB",
       "category": "bagel",
       "innerPack": 1,
       "par": 14
     },
     {
+      "sku": 1004,
       "name": "Cinnamon Raisin Bagel",
-      "id": "CRB",
+      "code": "CRB",
       "category": "bagel",
       "innerPack": 1,
       "par": 6
     },
     {
+      "sku": 1005,
       "name": "Sprouted Grain Bagel",
-      "id": "SGB",
+      "code": "SGB",
       "category": "bagel",
       "innerPack": 1,
       "par": 5
     },
     {
+      "sku": 1006,
       "name": "Blueberry Muffin",
-      "id": "BLU",
+      "code": "BLU",
       "category": "muffin",
       "innerPack": 3,
       "par": 6
     },
     {
+      "sku": 1007,
       "name": "Brownie",
-      "id": "Br",
+      "code": "Br",
       "category": "brownie",
       "innerPack": 2,
       "par": 6
     },
     {
+      "sku": 1008,
       "name": "Chocolate Chip Cookie",
-      "id": "ChCC",
+      "code": "ChCC",
       "category": "cookie",
       "innerPack": 1,
       "par": 7
     },
     {
+      "sku": 1009,
       "name": "Birthday Cake Pop",
-      "id": "BCP",
+      "code": "BCP",
       "category": "cakepop",
       "innerPack": 3,
       "par": 15
     },
     {
+      "sku": 1010,
       "name": "Chocolate Cake Pop",
-      "id": "ChCP",
+      "code": "ChCP",
       "category": "cakepop",
       "innerPack": 3,
       "par": 12
     },
     {
+      "sku": 1011,
       "name": "Cookie Dough Cake Pop",
-      "id": "CDCP",
+      "code": "CDCP",
       "category": "cakepop",
       "innerPack": 3,
       "par": 9
     },
     {
+      "sku": 1012,
       "name": "Cinnamon Coffee Cake",
-      "id": "CCC",
+      "code": "CCC",
       "category": "cake",
       "innerPack": 1,
       "par": 9
     },
     {
+      "sku": 1013,
       "name": "Pumpkin Loaf",
-      "id": "PKL",
+      "code": "PKL",
       "category": "loaf",
       "innerPack": 1,
       "par": 14
     },
     {
+      "sku": 1014,
       "name": "Banana Nut Bread",
-      "id": "BNL",
+      "code": "BNL",
       "category": "loaf",
       "innerPack": 1,
       "par": 12
     },
     {
+      "sku": 1015,
       "name": "Iced Lemon Loaf",
-      "id": "LL",
+      "code": "LL",
       "category": "loaf",
       "innerPack": 1,
       "par": 12
     },
     {
+      "sku": 1016,
       "name": "Butter Croissant",
-      "id": "Ct",
+      "code": "Ct",
       "category": "croissant",
       "innerPack": 1,
       "par": 15
     },
     {
+      "sku": 1017,
       "name": "Chocolate Croissant",
-      "id": "ChCt",
+      "code": "ChCt",
       "category": "croissant",
       "innerPack": 1,
       "par": 20
     },
     {
+      "sku": 1018,
       "name": "Blueberry Scone",
-      "id": "BSc",
+      "code": "BSc",
       "category": "scone",
       "innerPack": 1,
       "par": 7
     },
     {
+      "sku": 1019,
       "name": "Petite Vanilla Bean Scone",
-      "id": "PvBS",
+      "code": "PvBS",
       "category": "scone",
       "innerPack": 4,
       "par": 8
     },
     {
+      "sku": 1021,
       "name": "Cheese Danish",
-      "id": "CD",
+      "code": "CD",
       "category": "danish",
       "innerPack": 1,
       "par": 15
     },
     {
+      "sku": 1022,
       "name": "Glazed Doughnut",
-      "id": "GLD",
+      "code": "GLD",
       "category": "doughnut",
       "innerPack": 1,
       "par": 8

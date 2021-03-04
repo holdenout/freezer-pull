@@ -6,16 +6,16 @@ export const addFood = (foodState, food) => {
     R.ascend(R.compose(R.toLower, R.prop("name"))),
   ]);
 
-  // Throw error if food exists by name or id
-  if (R.none((f) => f.id === food.id || f.name === food.name, foodState)) {
+  // Throw error if food exists by SKU
+  if (R.none((f) => f.sku === food.sku, foodState)) {
     return sortByCategoryThenName(foodState.concat(food));
   } else {
-    throw new Error(`Food item '${food.name} (${food.id})' exists.`);
+    throw new Error(`Food item '${food.sku}: ${food.name} (${food.code})' exists.`);
   }
 };
 
 export const updateFood = (foodState, food) => {
-  const index = foodState.findIndex((f) => f.id === food.id);
+  const index = foodState.findIndex((f) => f.sku === food.sku);
   return R.update(index, food, foodState);
 };
 

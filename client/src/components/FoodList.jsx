@@ -7,8 +7,8 @@ export const FoodList = ({foodData, content, children}) => {
   const [isOpen, setOpen] = useState(null);
   const [search, setSearch] = useState("");
 
-  const toggleOpen = (id) => {
-    setOpen(isOpen === id ? null : id);
+  const toggleOpen = (sku) => {
+    setOpen(isOpen === sku ? null : sku);
   };
 
   const handleSearch = ({target: {value: newSearch}}) => {
@@ -21,12 +21,12 @@ export const FoodList = ({foodData, content, children}) => {
     })
     .map((food) => {
       return (
-        <li key={food.id}>
+        <li key={food.sku}>
           <Collapsible
-            open={isOpen === food.id}
+            open={isOpen === food.sku}
             header={food.name}
             content={content({food, isOpen})}
-            toggleOpen={() => toggleOpen(food.id)}
+            toggleOpen={() => toggleOpen(food.sku)}
           />
         </li>
       );

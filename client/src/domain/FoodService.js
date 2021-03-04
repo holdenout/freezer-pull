@@ -1,6 +1,7 @@
-export const Food = ({name, id, category, innerPack, par}) => ({
+export const Food = ({sku, name, code, category, innerPack, par}) => ({
+  sku: sku,
   name: name,
-  id: id,
+  code: code,
   category: category,
   innerPack: innerPack,
   par: par,
