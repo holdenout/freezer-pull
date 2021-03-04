@@ -19,12 +19,13 @@ const initDb = () => {
     createdb: "CREATE DATABASE IF NOT EXISTS freezer_pull;",
     use: "USE freezer_pull;",
     createFoodItems: `CREATE TABLE IF NOT EXISTS food_items (
-      id SMALLINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      sku INT UNSIGNED NOT NULL PRIMARY KEY,
       name VARCHAR(50) NOT NULL,
       code VARCHAR(7) NOT NULL,
       category VARCHAR(20) DEFAULT 'misc',
       inner_pack TINYINT UNSIGNED DEFAULT 1,
-      par TINYINT UNSIGNED DEFAULT 1
+      par TINYINT UNSIGNED DEFAULT 1,
+      active BOOLEAN DEFAULT false
     );`,
     createPulls: `CREATE TABLE IF NOT EXISTS pulls (
       id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

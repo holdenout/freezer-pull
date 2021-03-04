@@ -1,151 +1,193 @@
 {
   "items": [
     {
+      "sku": 1001,
       "name": "Almond Croissant",
       "code": "ACt",
       "category": "croissant",
       "inner_pack": 1,
-      "par": 12
+      "par": 12,
+      "active": true
     },
     {
+      "sku": 1002,
       "name": "Plain Bagel",
       "code": "PB",
       "category": "bagel",
       "inner_pack": 1,
-      "par": 13
+      "par": 13,
+      "active": true
     },
     {
+      "sku": 1003,
       "name": "Everything Bagel",
       "code": "EB",
       "category": "bagel",
       "inner_pack": 1,
-      "par": 14
+      "par": 14,
+      "active": true
     },
     {
+      "sku": 1004,
       "name": "Cinnamon Raisin Bagel",
       "code": "CRB",
       "category": "bagel",
       "inner_pack": 1,
-      "par": 6
+      "par": 6,
+      "active": true
     },
     {
+      "sku": 1005,
       "name": "Sprouted Grain Bagel",
       "code": "SGB",
       "category": "bagel",
       "inner_pack": 1,
-      "par": 5
+      "par": 5,
+      "active": true
     },
     {
+      "sku": 1006,
       "name": "Blueberry Muffin",
       "code": "BLU",
       "category": "muffin",
       "inner_pack": 3,
-      "par": 6
+      "par": 6,
+      "active": true
     },
     {
+      "sku": 1007,
       "name": "Brownie",
       "code": "Br",
       "category": "brownie",
       "inner_pack": 2,
-      "par": 6
+      "par": 6,
+      "active": true
     },
     {
+      "sku": 1008,
       "name": "Chocolate Chip Cookie",
       "code": "ChCC",
       "category": "cookie",
       "inner_pack": 1,
-      "par": 7
+      "par": 7,
+      "active": true
     },
     {
+      "sku": 1009,
       "name": "Birthday Cake Pop",
       "code": "BCP",
       "category": "cakepop",
       "inner_pack": 3,
-      "par": 15
+      "par": 15,
+      "active": true
     },
     {
+      "sku": 1010,
       "name": "Chocolate Cake Pop",
       "code": "ChCP",
       "category": "cakepop",
       "inner_pack": 3,
-      "par": 12
+      "par": 12,
+      "active": true
     },
     {
+      "sku": 1011,
       "name": "Cookie Dough Cake Pop",
       "code": "CDCP",
       "category": "cakepop",
       "inner_pack": 3,
-      "par": 9
+      "par": 9,
+      "active": true
     },
     {
+      "sku": 1012,
       "name": "Cinnamon Coffee Cake",
       "code": "CCC",
       "category": "cake",
       "inner_pack": 1,
-      "par": 9
+      "par": 9,
+      "active": true
     },
     {
+      "sku": 1013,
       "name": "Pumpkin Loaf",
       "code": "PKL",
       "category": "loaf",
       "inner_pack": 1,
-      "par": 14
+      "par": 14,
+      "active": true
     },
     {
+      "sku": 1014,
       "name": "Banana Nut Bread",
       "code": "BNL",
       "category": "loaf",
       "inner_pack": 1,
-      "par": 12
+      "par": 12,
+      "active": true
     },
     {
+      "sku": 1015,
       "name": "Iced Lemon Loaf",
       "code": "LL",
       "category": "loaf",
       "inner_pack": 1,
-      "par": 12
+      "par": 12,
+      "active": true
     },
     {
+      "sku": 1016,
       "name": "Butter Croissant",
       "code": "Ct",
       "category": "croissant",
       "inner_pack": 1,
-      "par": 15
+      "par": 15,
+      "active": true
     },
     {
+      "sku": 1017,
       "name": "Chocolate Croissant",
       "code": "ChCt",
       "category": "croissant",
       "inner_pack": 1,
-      "par": 20
+      "par": 20,
+      "active": true
     },
     {
+      "sku": 1018,
       "name": "Blueberry Scone",
       "code": "BSc",
       "category": "scone",
       "inner_pack": 1,
-      "par": 7
+      "par": 7,
+      "active": true
     },
     {
+      "sku": 1019,
       "name": "Petite Vanilla Bean Scone",
       "code": "PvBS",
       "category": "scone",
       "inner_pack": 4,
-      "par": 8
+      "par": 8,
+      "active": true
     },
     {
+      "sku": 1021,
       "name": "Cheese Danish",
       "code": "CD",
       "category": "danish",
       "inner_pack": 1,
-      "par": 15
+      "par": 15,
+      "active": true
     },
     {
+      "sku": 1022,
       "name": "Glazed Doughnut",
       "code": "GLD",
       "category": "doughnut",
       "inner_pack": 1,
-      "par": 8
+      "par": 8,
+      "active": true
     }
   ]
 }
