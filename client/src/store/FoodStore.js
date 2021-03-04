@@ -10,7 +10,9 @@ export const addFood = (foodState, food) => {
   if (R.none((f) => f.sku === food.sku, foodState)) {
     return sortByCategoryThenName(foodState.concat(food));
   } else {
-    throw new Error(`Food item '${food.sku}: ${food.name} (${food.code})' exists.`);
+    throw new Error(
+      `Food item '${food.sku}: ${food.name} (${food.code})' exists.`
+    );
   }
 };
 
