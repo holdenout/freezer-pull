@@ -6,7 +6,7 @@ const Food = require("../models/foodModel.js")
 // get all
 router.get("/all", Food.getAll);
 
-// get one by id
-router.get("/:foodId", Food.getById);
+// get one by SKU
+router.get("/:foodSku", Food.getBySku);
 
 module.exports = router;

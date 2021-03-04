@@ -33,10 +33,10 @@ const initDb = () => {
     );`,
     createFoodItemPull: `CREATE TABLE IF NOT EXISTS food_item_pull (
       pull_id INT UNSIGNED NOT NULL,
-      food_item_id SMALLINT UNSIGNED NOT NULL,
+      food_item_sku SMALLINT UNSIGNED NOT NULL,
       carryover TINYINT UNSIGNED NOT NULL,
       pulled TINYINT UNSIGNED NOT NULL,
-      PRIMARY KEY(pull_id, food_item_id)
+      PRIMARY KEY(pull_id, food_item_sku)
     );`,
     insertValue: "INSERT INTO food_items SET ?;"
   };

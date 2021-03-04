@@ -188,6 +188,15 @@
       "inner_pack": 1,
       "par": 8,
       "active": true
+    },
+    {
+      "sku": 9999,
+      "name": "Inactive Test",
+      "code": "IAT",
+      "category": "test",
+      "inner_pack": 1,
+      "par": 1,
+      "active": false
     }
   ]
 }
