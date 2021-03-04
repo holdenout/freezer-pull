@@ -1,14 +1,17 @@
+import {useEffect} from "react";
 import {Switch, Route} from "react-router-dom";
 import LandingPage from "./components/pages/LandingPage.jsx";
 import CarryoverPage from "./components/pages/CarryoverPage.jsx";
 import PullPage from "./components/pages/PullPage.jsx";
 import NavBar from "./components/NavBar.jsx";
-import {getSampleFoodData} from "./util/getSampleFoodData.js";
+import {populateFoodStore} from "./util/populateFoodStore.js";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import "./App.css";
 
 export const App = () => {
-  getSampleFoodData();
+  // Populate food store from db
+  //   (needs local fallback as failsafe)
+  useEffect(() => populateFoodStore(), []);
 
   return (
     <div className="App">
