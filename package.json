@@ -4,6 +4,7 @@
   "description": "Pull from freezer inventory for front of house food sales.",
   "main": "server.js",
   "scripts": {
+    "runall": "node server.js & npm start --prefix ./client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
