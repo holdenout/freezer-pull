@@ -42,7 +42,9 @@ export const FoodList = ({foodData, content, children}) => {
           value={search}
           onChange={handleSearch}
         />
-        <span className="clear">&#x2715;</span>
+        <span className="clear" onClick={() => setSearch("")}>
+          &#x2715;
+        </span>
       </div>
       <ul className="food-items">{filteredFoodData}</ul>
       {children}
