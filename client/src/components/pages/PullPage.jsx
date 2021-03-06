@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
 import {useStore} from "../useStore.js";
+import api from "../../adapters/pullAdapter.js";
 import FoodList from "../FoodList.jsx";
 
 // Content to display inside collapsible
@@ -57,7 +58,7 @@ const Content = ({food, isOpen}) => {
       </div>
       <div>
         <button className="submit-food" onClick={handleSubmit}>
-          Submit (non-functional)
+          Submit
         </button>
       </div>
     </div>
@@ -67,14 +68,24 @@ const Content = ({food, isOpen}) => {
 export const PullPage = () => {
   const [foodData] = useStore();
 
+  const handleSubmit = async (data) => {
+    try {
+      await api.submitPull("a");
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+    return true;
+  };
+
   return (
     <div>
       <FoodList
         foodData={foodData}
         content={(contentProps) => <Content {...contentProps} />}
       >
-        <Link className="next" to="/">
-          Submit pull (non-functional)
+        <Link className="next" to="/" onClick={() => handleSubmit(foodData)}>
+          Submit pull
         </Link>
       </FoodList>
     </div>
