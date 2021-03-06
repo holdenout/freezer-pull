@@ -10,8 +10,9 @@ const Food = ({name, code, category, inner_pack, par}) => {
 
 // get all
 Food.getAll = (req, res) => {
-  db.query(`SELECT sku, name, code, category, inner_pack, par
-            FROM food_items WHERE active=true;`,
+  db.query(
+    `SELECT sku, name, code, category, inner_pack, par
+     FROM food_items WHERE active=true;`,
     (err, data) => {
       if (err) throw err;
       const cleanedData = data.reduce((acc, curr) => {
@@ -21,14 +22,18 @@ Food.getAll = (req, res) => {
       res.status(200).send(cleanedData);
     }
   );
-}
+};
 
 // get one by SKU
 Food.getBySku = (req, res) => {
-  db.query("SELECT * FROM food_items WHERE sku = ?;", req.params.foodSku, (err, data) => {
-    if (err) throw err;
-    res.status(200).send(data);
-  });
-}
+  db.query(
+    "SELECT * FROM food_items WHERE sku = ?;",
+    req.params.foodSku,
+    (err, data) => {
+      if (err) throw err;
+      res.status(200).send(data);
+    }
+  );
+};
 
 module.exports = Food;

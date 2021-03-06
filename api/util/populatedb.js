@@ -10,7 +10,7 @@ const initDb = () => {
   const connection = mysql.createConnection({
     host: dbConfig.HOST,
     user: dbConfig.USER,
-    password: dbConfig.PASSWORD
+    password: dbConfig.PASSWORD,
   });
 
   // Build sql queries
@@ -38,7 +38,7 @@ const initDb = () => {
       pulled TINYINT UNSIGNED NOT NULL,
       PRIMARY KEY(pull_id, food_item_sku)
     );`,
-    insertValue: "INSERT INTO food_items SET ?;"
+    insertValue: "INSERT INTO food_items SET ?;",
   };
 
   // Execute db operations
@@ -98,31 +98,34 @@ const initDb = () => {
 const prompt = async () => {
   const rl = require("readline").createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   });
 
   const input = await new Promise((resolve) => {
     // Prompt if mysql user info is correct
-    rl.question("Is your mysql user info in /api/models/dbConfig.js " +
-      "correct and granted sufficient permissions?\n(Enter y for yes) ",
+    rl.question(
+      "Is your mysql user info in /api/models/dbConfig.js " +
+        "correct and granted sufficient permissions?\n(Enter y for yes) ",
       (answer) => {
         if (answer.toLowerCase() !== "y") {
           rl.close();
           resolve(false);
         } else {
           // Warn that database may be deleted
-          rl.question("\n###########\n# WARNING #\n###########\n" +
-            "If you already have a database named freezer_pull, this " +
-            "WILL OVERWRITE IT! Is this okay?\n(Enter y for yes) ",
+          rl.question(
+            "\n###########\n# WARNING #\n###########\n" +
+              "If you already have a database named freezer_pull, this " +
+              "WILL OVERWRITE IT! Is this okay?\n(Enter y for yes) ",
             (answer) => {
               rl.close();
               answer.toLowerCase() === "y" ? resolve(true) : resolve(false);
             }
           );
         }
-    });
+      }
+    );
   });
   return input;
 };
 
-prompt().then((isReady) => isReady ? initDb() : console.log("Halted"));
+prompt().then((isReady) => (isReady ? initDb() : console.log("Halted")));
