@@ -12,6 +12,7 @@ export const FoodList = ({foodData, content, children}) => {
   };
 
   const handleSearch = ({target: {value: newSearch}}) => {
+    setOpen(null);
     setSearch(newSearch);
   };
 
