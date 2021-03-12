@@ -1,5 +1,4 @@
 const mysql = require("mysql");
-const {promisify} = require("util");
 const dbConfig = require("../models/dbConfig.js");
 
 const {items} = require("./sampleFoodData.json");
