@@ -15,9 +15,9 @@ const initDb = () => {
 
   // Build sql queries
   const queries = {
-    dropdb: "DROP DATABASE IF EXISTS freezer_pull;",
-    createdb: "CREATE DATABASE IF NOT EXISTS freezer_pull;",
-    use: "USE freezer_pull;",
+    dropdb: `DROP DATABASE IF EXISTS ${dbConfig.DB};`,
+    createdb: `CREATE DATABASE IF NOT EXISTS ${dbConfig.DB};`,
+    use: `USE ${dbConfig.DB};`,
     createFoodItems: `CREATE TABLE IF NOT EXISTS food_items (
       sku INT UNSIGNED NOT NULL PRIMARY KEY,
       name VARCHAR(50) NOT NULL,
@@ -51,7 +51,7 @@ const initDb = () => {
     connection.query(queries.dropdb, (err, res) => {
       if (err) throw err;
       if (res.affectedRows > 0) {
-        console.log("Database freezer_pull dropped.");
+        console.log(`Database ${dbConfig.DB} dropped.`);
       }
     });
 
@@ -64,7 +64,7 @@ const initDb = () => {
     // Select db for use
     connection.query(queries.use, (err) => {
       if (err) throw err;
-      console.log("Using `freezer_pull`.");
+      console.log(`Using \`${dbConfig.DB}\`.`);
     });
 
     // Create tables
@@ -104,7 +104,7 @@ const prompt = async () => {
   const input = await new Promise((resolve) => {
     // Prompt if mysql user info is correct
     rl.question(
-      "Is your mysql user info in /api/models/dbConfig.js " +
+      "Is your mysql user, password, and db name info in .env " +
         "correct and granted sufficient permissions?\n(Enter y for yes) ",
       (answer) => {
         if (answer.toLowerCase() !== "y") {
@@ -114,7 +114,7 @@ const prompt = async () => {
           // Warn that database may be deleted
           rl.question(
             "\n###########\n# WARNING #\n###########\n" +
-              "If you already have a database named freezer_pull, this " +
+              `If you already have a database named ${dbConfig.DB}, this ` +
               "WILL OVERWRITE IT! Is this okay?\n(Enter y for yes) ",
             (answer) => {
               rl.close();

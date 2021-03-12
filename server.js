@@ -4,6 +4,9 @@ const cors = require("cors");
 const foodRouter = require("./api/routes/foodRoutes.js");
 const pullRouter = require("./api/routes/pullRoutes.js");
 
+// Load .env vars to process.env
+require("dotenv").config();
+
 const app = express();
 
 // parse requests of content-type: application/json
@@ -23,6 +26,7 @@ app.use("/food", foodRouter);
 app.use("/pull", pullRouter);
 
 // set port, listen for requests
-app.listen(4000, () => {
-  console.log("Server is running on port 4000.");
+const port = parseInt(process.env.PORT) || 4000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`);
 });

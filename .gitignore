@@ -9,6 +9,7 @@ npm-debug.log*
 .env
 .env.test
 .env*.local
+!.env.example
 
 # misc
 .DS_Store
