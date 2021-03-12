@@ -70,7 +70,7 @@ export const PullPage = () => {
 
   const handleSubmit = async (data) => {
     try {
-      await api.submitPull("a");
+      await api.submitPull(data);
     } catch (err) {
       console.log(err);
       return false;
