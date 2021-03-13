@@ -15,10 +15,10 @@ app.use(bodyParser.json());
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 
-// enable CORS
+// enable CORS for react dev environment
 // not needed if client is served from here
-//   correct for production
-app.use(cors());
+//   TODO: correct for production
+app.use(cors({origin: "http://localhost:3000"}));
 
 app.get("/", (req, res) => {
   res.json({message: "freezer-pull app running"});
