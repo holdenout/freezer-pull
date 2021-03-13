@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // enable CORS
+// not needed if client is served from here
+//   correct for production
 app.use(cors());
 
 app.get("/", (req, res) => {
