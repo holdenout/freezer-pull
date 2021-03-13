@@ -5,7 +5,7 @@ const Pull = {};
 // create
 Pull.create = (req, res) => {
   db.query(
-    "INSERT INTO pulls (pull_DATE) VALUE (TIMESTAMP(NOW()));",
+    "INSERT INTO pulls (pull_date) VALUE (TIMESTAMP(NOW()));",
     (err, data) => {
       if (err) throw err;
 
