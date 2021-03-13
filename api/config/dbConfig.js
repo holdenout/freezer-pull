@@ -1,5 +1,3 @@
-// default config for mysql, need better solution
-
 module.exports = {
   HOST: process.env.DB_HOST || "localhost",
   USER: process.env.DB_USER || "test",
