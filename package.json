@@ -4,7 +4,8 @@
   "description": "Pull from freezer inventory for front of house food sales.",
   "main": "server.js",
   "scripts": {
-    "runall": "node server.js & npm start --prefix ./client",
+    "startdev": "nodemon server.js",
+    "runall": "nodemon server.js & npm start --prefix ./client",
     "formatcheck": "npx prettier --check server.js \"api/**/*\"",
     "format": "npx prettier --write server.js \"api/**/*\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,6 +28,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
   }
 }
