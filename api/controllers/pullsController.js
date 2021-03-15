@@ -6,7 +6,7 @@ exports.executePull = async (req, res) => {
     Pull.create((err, data) => {
       if (err) {
         res.status(500).send({
-          message: err.message || "Error occurred while creating pull entry."
+          message: err.message || "Error occurred while creating pull entry.",
         });
         reject(null);
       }
@@ -25,7 +25,8 @@ exports.executePull = async (req, res) => {
   FoodItemPull.addPulledFood(pullData, (err, data) => {
     if (err) {
       res.status(500).send({
-        message: err.message || "Error ocurred while inserting food item pull info."
+        message:
+          err.message || "Error ocurred while inserting food item pull info.",
       });
     }
 

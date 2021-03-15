@@ -4,7 +4,7 @@ exports.getAll = (req, res) => {
   Food.getAll((err, data) => {
     if (err) {
       res.status(500).send({
-        message: err.message || "Error ocurred while retrieving food."
+        message: err.message || "Error ocurred while retrieving food.",
       });
       return;
     }
