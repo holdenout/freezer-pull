@@ -6,9 +6,10 @@ exports.getAll = (req, res) => {
       res.status(500).send({
         message: err.message || "Error ocurred while retrieving food."
       });
-    } else {
-      res.status(200).send(data);
+      return;
     }
+
+    res.status(200).send(data);
   });
 };
 
@@ -25,8 +26,10 @@ exports.getBySku = (req, res) => {
           message: `Error retrieving food with SKU ${sku}`,
         });
       }
-    } else {
-      res.status(200).send(data);
+
+      return;
     }
+
+    res.status(200).send(data);
   });
 };

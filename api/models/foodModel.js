@@ -20,7 +20,7 @@ Food.getAll = (res) => {
         return;
       }
 
-      console.log("All active food: ", data, "\n");
+      console.log("Active food items: ", data, "\n");
       res(null, data);
     }
   );
