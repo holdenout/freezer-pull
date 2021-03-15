@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../models/db.js");
-const Pull = require("../models/pullsModel.js");
+const Pull = require("../controllers/pullsController.js");
 
 // create
-router.post("/new", Pull.create);
+router.post("/new", Pull.executePull);
 
 module.exports = router;

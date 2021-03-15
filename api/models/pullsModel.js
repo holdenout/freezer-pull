@@ -3,28 +3,17 @@ const db = require("./db.js");
 const Pull = {};
 
 // create
-Pull.create = (req, res) => {
+Pull.create = (res) => {
   db.query(
     "INSERT INTO pulls (pull_date) VALUE (TIMESTAMP(NOW()));",
     (err, data) => {
-      if (err) throw err;
+      if (err) {
+        console.log("Error: ", error);
+        res(err, null);
+      }
 
-      // get id of pull
-      const {insertId: pull_id} = data;
-
-      // create nested area of insert values
-      const pullData = req.body.pullData.map(({sku, carryover, pull}) => {
-        return [pull_id, sku, carryover, pull];
-      });
-
-      db.query(
-        "INSERT INTO food_item_pull VALUES ?",
-        [pullData],
-        (err, data) => {
-          if (err) throw err;
-          res.status(201).send(data);
-        }
-      );
+      console.log("Pull created.");
+      res(null, data);
     }
   );
 };
