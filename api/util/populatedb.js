@@ -26,6 +26,7 @@ const initDb = () => {
       par TINYINT UNSIGNED DEFAULT 1,
       active BOOLEAN DEFAULT false
     );`,
+    insertValue: "INSERT INTO food_items SET ?;",
     createPulls: `CREATE TABLE IF NOT EXISTS pulls (
       id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
       pull_date TIMESTAMP NOT NULL
@@ -37,7 +38,14 @@ const initDb = () => {
       pulled TINYINT UNSIGNED NOT NULL,
       PRIMARY KEY(pull_id, food_item_sku)
     );`,
-    insertValue: "INSERT INTO food_items SET ?;",
+    createUsers: `CREATE TABLE IF NOT EXISTS users (
+      id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      username VARCHAR(15) NOT NULL,
+      password VARCHAR(25) NOT NULL
+    );`,
+    createDefaultUser: `INSERT INTO users (username, password) VALUES (
+      default, password
+    );`
   };
 
   // Execute db operations
@@ -82,6 +90,11 @@ const initDb = () => {
       console.log("Created `food_item_pull` table.");
     });
 
+    connection.query(queries.createUsers, (err) => {
+      if (err) throw err;
+      console.log("Created `users` table.");
+    });
+
     // Insert sample food info
     items.forEach((item) => {
       connection.query(queries.insertValue, item, (err) => {
@@ -89,6 +102,14 @@ const initDb = () => {
         console.log("Added sample food_item.");
       });
     });
+
+    // Add default user
+    connection.query(queries.createDefaultUser, (err) => {
+      if (err) throw err;
+      console.log("Created default user");
+    });
+
+    // End connection
     connection.end();
   });
 };
