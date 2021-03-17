@@ -39,8 +39,7 @@ const initDb = () => {
       PRIMARY KEY(pull_id, food_item_sku)
     );`,
     createUsers: `CREATE TABLE IF NOT EXISTS users (
-      id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-      username VARCHAR(15) NOT NULL,
+      username VARCHAR(15) NOT NULL PRIMARY KEY,
       password VARCHAR(25) NOT NULL
     );`,
     createDefaultUser: `INSERT INTO users (username, password) VALUES (
