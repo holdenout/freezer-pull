@@ -44,7 +44,7 @@ const initDb = () => {
       password VARCHAR(25) NOT NULL
     );`,
     createDefaultUser: `INSERT INTO users (username, password) VALUES (
-      default, password
+      defaultUser, password
     );`
   };
 
