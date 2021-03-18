@@ -44,7 +44,7 @@ const initDb = () => {
     );`,
     createDefaultUser: `INSERT INTO users (username, password) VALUES (
       defaultUser, password
-    );`
+    );`,
   };
 
   // Execute db operations

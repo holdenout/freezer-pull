@@ -6,19 +6,15 @@ const User = ({username, password}) => {
 };
 
 User.create = (user, res) => {
-  db.query(
-    "INSERT INTO users SET ?;",
-    user,
-    (err, data) => {
-      if (err) {
-        console.log("Error: ", error);
-        res(err, null);
-      }
-
-      console.log("User created.");
-      res(null, data);
+  db.query("INSERT INTO users SET ?;", user, (err, data) => {
+    if (err) {
+      console.log("Error: ", error);
+      res(err, null);
     }
-  );
+
+    console.log("User created.");
+    res(null, data);
+  });
 };
 
 User.getByName = (name, res) => {
