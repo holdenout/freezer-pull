@@ -8,7 +8,7 @@ const User = ({username, password}) => {
 User.create = (user, res) => {
   db.query("INSERT INTO users SET ?;", user, (err, data) => {
     if (err) {
-      console.log("Error: ", error);
+      console.log("Error: ", err);
       res(err, null);
     }
 
@@ -19,7 +19,7 @@ User.create = (user, res) => {
 
 User.getByName = (name, res) => {
   db.query(
-    "SELECT * FROM users WHERE LOWER(username) LIKE LOWER('?');",
+    "SELECT * FROM users WHERE LOWER(username) LIKE LOWER(?);",
     name,
     (err, data) => {
       if (err) {

@@ -35,7 +35,7 @@ const checkDuplicateUsername = (req, res, next) => {
 };
 
 const verifySignup = {
-  isValid: isValid,
+  validateFormat: validateFormat,
   checkDuplicateUsername: checkDuplicateUsername,
 };
 
