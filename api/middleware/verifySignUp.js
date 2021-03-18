@@ -4,7 +4,10 @@ const User = require("../models/userModel.js");
 const validateFormat = (req, res, next) => {
   const newUsername = req.body.username;
 
-  const isValid = newUsername.search(/^[A-Za-z]\w*$/) > -1;
+  const isValid =
+    newUsername.length &&
+    newUsername.length <= 15 &&
+    newUsername.search(/^[A-Za-z]\w*$/) > -1;
 
   if (!isValid) {
     res.status(400).send({
