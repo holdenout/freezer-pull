@@ -5,7 +5,7 @@ const validateFormat = (req, res, next) => {
   const newUsername = req.body.username;
 
   const isValid =
-    newUsername.length &&
+    newUsername.length >= 3 &&
     newUsername.length <= 15 &&
     newUsername.search(/^[A-Za-z]\w*$/) > -1;
 
