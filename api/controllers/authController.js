@@ -25,7 +25,7 @@ exports.signUp = (req, res) => {
   );
 };
 
-exports.signIn = (req, res) => {
+exports.login = (req, res) => {
   User.getByName(req.body.username, (err, user) => {
     if (err) {
       res.status(500).send({
