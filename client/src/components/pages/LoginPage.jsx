@@ -26,46 +26,43 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Sign Up</h1>
-      <label>
+      <h2 className="form-title">Sign Up</h2>
+      <label for="username">
         Username:
         <br />
         <input
+          className="form-input"
           type="text"
+          id="username"
           name="username"
+          placeholder="New username"
           value={username}
           onChange={handleChange}
         />
-        <p>
-          Username must:
-          <br />
-          &ensp;be at least 3 characters
-          <br />
-          &ensp;start with a letter
-          <br />
-          &ensp;contain only A-Z, a-z, 0-9, and _.
-          <br />
-        </p>
+        <ul className="form-input-info">
+          <li>must be at least 3 characters</li>
+          <li>must start with a letter</li>
+          <li>contain only A-Z, a-z, 0-9, and _</li>
+        </ul>
       </label>
-      <label>
+      <label for="password">
         Password:
         <br />
         <input
+          className="form-input"
           type="password"
+          id="password"
           name="password"
+          placeholder="New password"
           value={password}
           onChange={handleChange}
         />
-        <p>
-          Password:
-          <br />
-          &ensp;must be at least 5 characters
-          <br />
-          &ensp;can contain letters, numbers, and symbols.
-        </p>
-        <br />
+        <ul className="form-input-info">
+          <li>must be at least 5 characters</li>
+          <li>can contain letters, numbers, and symbols</li>
+        </ul>
       </label>
-      <input type="submit" value="Submit" />
+      <div><input className="btn submit-btn" type="submit" value="Submit" /></div>
     </form>
   );
 };
