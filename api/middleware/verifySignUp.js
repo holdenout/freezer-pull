@@ -1,7 +1,7 @@
 const db = require("../models/db.js");
 const User = require("../models/userModel.js");
 
-const validateFormat = (req, res, next) => {
+const validateUsernameFormat = (req, res, next) => {
   const newUsername = req.body.username;
 
   const isValid =
@@ -11,7 +11,25 @@ const validateFormat = (req, res, next) => {
 
   if (!isValid) {
     res.status(400).send({
-      message: "Invalid characters",
+      message: "Invalid username",
+    });
+    return;
+  }
+
+  next();
+};
+
+const validatePasswordFormat = (req, res, next) => {
+  const newPassword = req.body.password;
+
+  const isValid =
+    newUsername.length >= 5 &&
+    newUsername.length <= 25 &&
+    newUsername.search(/^[A-Za-z@$!%*#?&]\w*$/) > -1;
+
+  if (!isValid) {
+    res.status(400).send({
+      message: "Invalid password",
     });
     return;
   }
@@ -35,7 +53,8 @@ const checkDuplicateUsername = (req, res, next) => {
 };
 
 const verifySignup = {
-  validateFormat: validateFormat,
+  validateUsernameFormat: validateUsernameFormat,
+  validatePasswordFormat: validatePasswordFormat,
   checkDuplicateUsername: checkDuplicateUsername,
 };
 

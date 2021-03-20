@@ -13,7 +13,11 @@ router.use((req, res, next) => {
 
 router.post(
   "/signup",
-  [verifySignUp.validateFormat, verifySignUp.checkDuplicateUsername],
+  [
+    verifySignUp.validateUsernameFormat,
+    verifySignUp.validatePasswordFormat,
+    verifySignUp.checkDuplicateUsername,
+  ],
   user.signUp
 );
 
