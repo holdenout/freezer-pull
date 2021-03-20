@@ -1,6 +1,61 @@
 import {useState} from "react";
 import api from "../../adapters/authAdapter.js";
 
+const LoginForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleChange = (event) => {
+    const {name: targetName, value} = event.target;
+
+    if (targetName === "username") setUsername(value);
+    if (targetName === "password") setPassword(value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await api.login(username, password);
+    } catch (err) {
+      console.log(err.response.data.message);
+      return;
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2 className="form-title">Login</h2>
+      <label for="username">
+        Username:
+        <br />
+        <input
+          className="form-input"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter username"
+          value={username}
+          onChange={handleChange}
+        />
+      </label>
+      <label for="password">
+        Password:
+        <br />
+        <input
+          className="form-input"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={handleChange}
+        />
+      </label>
+      <div><input className="btn submit-btn" type="submit" value="Submit" /></div>
+    </form>
+  );
+};
+
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +74,7 @@ const SignUpForm = () => {
       res = await api.signUp(username, password);
     } catch (err) {
       console.log(err.response.data.message);
-      return false;
+      return;
     }
     console.log(res.data.message);
   };
@@ -27,13 +82,13 @@ const SignUpForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="form-title">Sign Up</h2>
-      <label for="username">
+      <label for="new-username">
         Username:
         <br />
         <input
           className="form-input"
           type="text"
-          id="username"
+          id="new-username"
           name="username"
           placeholder="New username"
           value={username}
@@ -45,13 +100,13 @@ const SignUpForm = () => {
           <li>contain only A-Z, a-z, 0-9, and _</li>
         </ul>
       </label>
-      <label for="password">
+      <label for="new-password">
         Password:
         <br />
         <input
           className="form-input"
           type="password"
-          id="password"
+          id="new-password"
           name="password"
           placeholder="New password"
           value={password}
@@ -70,6 +125,8 @@ const SignUpForm = () => {
 export const LoginPage = () => {
   return (
     <div>
+      <LoginForm />
+      <hr/>
       <SignUpForm />
     </div>
   );
