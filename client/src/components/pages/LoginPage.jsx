@@ -4,6 +4,7 @@ import api from "../../adapters/authAdapter.js";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleChange = (event) => {
     const {name: targetName, value} = event.target;
@@ -14,12 +15,23 @@ const LoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    setUsername("");
+    setPassword("");
+
+    const {
+      username: {value: username},
+      password: {value: password},
+    } = event.target;
+
     try {
       await api.login(username, password);
     } catch (err) {
+      setMessage(err.response.data.message);
       console.log(err.response.data.message);
       return;
     }
+    setMessage("");
   };
 
   return (
@@ -51,7 +63,10 @@ const LoginForm = () => {
           onChange={handleChange}
         />
       </label>
-      <div><input className="btn submit-btn" type="submit" value="Submit" /></div>
+      {message && <div className="message">{message}</div>}
+      <div>
+        <input className="btn submit-btn" type="submit" value="Submit" />
+      </div>
     </form>
   );
 };
@@ -59,6 +74,7 @@ const LoginForm = () => {
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleChange = (event) => {
     const {name: targetName, value} = event.target;
@@ -69,14 +85,26 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let res;
+
+    setUsername("");
+    setPassword("");
+
+    const {
+      username: {value: username},
+      password: {value: password},
+    } = event.target;
+
+    let response;
     try {
-      res = await api.signUp(username, password);
+      response = await api.signUp(username, password);
+      setMessage(response.data.message);
     } catch (err) {
+      setMessage(err.response.data.message);
       console.log(err.response.data.message);
       return;
     }
-    console.log(res.data.message);
+    setMessage("");
+    console.log(response.data.message);
   };
 
   return (
@@ -117,7 +145,10 @@ const SignUpForm = () => {
           <li>can contain letters, numbers, and symbols</li>
         </ul>
       </label>
-      <div><input className="btn submit-btn" type="submit" value="Submit" /></div>
+      {message && <div className="message">{message}</div>}
+      <div>
+        <input className="btn submit-btn" type="submit" value="Submit" />
+      </div>
     </form>
   );
 };
@@ -126,7 +157,7 @@ export const LoginPage = () => {
   return (
     <div>
       <LoginForm />
-      <hr/>
+      <hr />
       <SignUpForm />
     </div>
   );

@@ -30,6 +30,10 @@ form div {
   text-align: center;
 }
 
+form .message {
+  color: var(--main-color);
+}
+
 form label {
   margin-bottom: 0.5em;
 }
