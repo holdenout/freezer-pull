@@ -37,7 +37,7 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="form-title">Login</h2>
-      <label for="username">
+      <label htmlFor="username">
         Username:
         <br />
         <input
@@ -48,9 +48,10 @@ const LoginForm = () => {
           placeholder="Enter username"
           value={username}
           onChange={handleChange}
+          required
         />
       </label>
-      <label for="password">
+      <label htmlFor="password">
         Password:
         <br />
         <input
@@ -61,6 +62,7 @@ const LoginForm = () => {
           placeholder="Enter password"
           value={password}
           onChange={handleChange}
+          required
         />
       </label>
       {message && <div className="message">{message}</div>}
@@ -110,7 +112,7 @@ const SignUpForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="form-title">Sign Up</h2>
-      <label for="new-username">
+      <label htmlFor="new-username">
         Username:
         <br />
         <input
@@ -121,6 +123,7 @@ const SignUpForm = () => {
           placeholder="New username"
           value={username}
           onChange={handleChange}
+          required
         />
         <ul className="form-input-info">
           <li>must be at least 3 characters</li>
@@ -128,7 +131,7 @@ const SignUpForm = () => {
           <li>contain only A-Z, a-z, 0-9, and _</li>
         </ul>
       </label>
-      <label for="new-password">
+      <label htmlFor="new-password">
         Password:
         <br />
         <input
@@ -139,6 +142,7 @@ const SignUpForm = () => {
           placeholder="New password"
           value={password}
           onChange={handleChange}
+          required
         />
         <ul className="form-input-info">
           <li>must be at least 5 characters</li>
