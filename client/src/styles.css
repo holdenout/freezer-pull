@@ -30,8 +30,12 @@ form div {
   text-align: center;
 }
 
+form label {
+  margin-bottom: 0.5em;
+}
+
 .form-input-info {
-  margin-top: 0.3em;
+  margin: 0;
   padding-left: 2em;
   font-size: 75%;
   color: grey;
