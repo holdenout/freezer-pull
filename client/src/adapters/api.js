@@ -9,3 +9,8 @@ export const pullApi = axios.create({
   baseURL: "http://localhost:4000/pull",
   headers: {"Content-type": "application/json"},
 });
+
+export const authApi = axios.create({
+  baseURL: "http://localhost:4000/auth",
+  headers: {"Content-type": "application/json"},
+});
