@@ -23,9 +23,9 @@ const validatePasswordFormat = (req, res, next) => {
   const newPassword = req.body.password;
 
   const isValid =
-    newUsername.length >= 5 &&
-    newUsername.length <= 25 &&
-    newUsername.search(/^[A-Za-z@$!%*#?&]\w*$/) > -1;
+    newPassword.length >= 5 &&
+    newPassword.length <= 25 &&
+    newPassword.search(/^[A-Za-z@$!%*#?&]\w*$/) > -1;
 
   if (!isValid) {
     res.status(400).send({
