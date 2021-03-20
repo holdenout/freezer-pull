@@ -40,7 +40,7 @@ const initDb = () => {
     );`,
     createUsers: `CREATE TABLE IF NOT EXISTS users (
       username VARCHAR(15) NOT NULL PRIMARY KEY,
-      password BINARY(60) NOT NULL
+      password CHAR(60) NOT NULL
     );`,
     createDefaultUser: `INSERT INTO users (username, password) VALUES (
       'default', 'password'

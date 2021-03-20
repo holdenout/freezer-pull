@@ -30,7 +30,7 @@ User.getByName = (name, res) => {
 
       if (data.length) {
         console.log("Found user: ", name);
-        res(null, data);
+        res(null, data[0]);
         return;
       }
 
