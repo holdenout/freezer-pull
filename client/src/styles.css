@@ -1,0 +1,59 @@
+:root {
+  --main-color: #00643c;
+  font-size: large;
+}
+
+.App {
+  text-align: center;
+}
+
+.food-input {
+  margin: 0.5em;
+  font-size: 100%;
+  width: 1.5em;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  border-bottom: 2.5px solid black;
+  text-align: center;
+}
+
+.pull-info {
+  margin-bottom: 0.5em;
+}
+
+.pull-info > div {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.btn {
+  font-size: 100%;
+  font-family: inherit;
+  background-color: inherit;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.incr-decr-btn {
+  font-weight: bold;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  border-radius: 100%;
+}
+
+.submit-btn {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 13px;
+  padding: 5px;
+}
+
+.next-btn {
+  display: inline-block;
+  margin-bottom: 9px;
+  text-decoration: none;
+}

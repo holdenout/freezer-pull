@@ -4,7 +4,7 @@ export const LandingPage = ({toCarryover}) => {
   return (
     <div>
       <p>LandingPage under development</p>
-      <Link className="next" to="/carryover">
+      <Link className="btn submit-btn next-btn" to="/carryover">
         Begin carryover count
       </Link>
     </div>

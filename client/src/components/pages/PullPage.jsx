@@ -37,27 +37,33 @@ const Content = ({food, isOpen}) => {
 
   return (
     <div className="food-content">
-      <div className="info">
+      <div className="pull-info">
         <div>Carryover: {food.carryover}</div>
         <div>Par: {food.par}</div>
       </div>
       <div>
-        <button onClick={() => handlePull(pull - food.innerPack)}>
+        <button
+          className="btn incr-decr-btn"
+          onClick={() => handlePull(pull - food.innerPack)}
+        >
           &#xFF0D;
         </button>
         <input
-          className="pull"
+          className="food-input"
           type="tel"
           value={pull}
           onChange={handleChange}
           ref={focusRef}
         />
-        <button onClick={() => handlePull(pull + food.innerPack)}>
+        <button
+          className="btn incr-decr-btn"
+          onClick={() => handlePull(pull + food.innerPack)}
+        >
           &#xFF0B;
         </button>
       </div>
       <div>
-        <button className="submit-food" onClick={handleSubmit}>
+        <button className="btn submit-btn" onClick={handleSubmit}>
           Submit
         </button>
       </div>
@@ -84,7 +90,11 @@ export const PullPage = () => {
         foodData={foodData}
         content={(contentProps) => <Content {...contentProps} />}
       >
-        <Link className="next" to="/" onClick={() => handleSubmit(foodData)}>
+        <Link
+          className="btn submit-btn next-btn"
+          to="/"
+          onClick={() => handleSubmit(foodData)}
+        >
           Submit pull
         </Link>
       </FoodList>

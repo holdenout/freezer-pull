@@ -6,7 +6,7 @@ import PullPage from "./components/pages/PullPage.jsx";
 import NavBar from "./components/NavBar.jsx";
 import {populateFoodStore} from "./util/populateFoodStore.js";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import "./App.css";
+import "./styles.css";
 
 export const App = () => {
   // Populate food store from db

@@ -3,7 +3,7 @@ import "./Collapsible.css";
 export const Collapsible = ({open, header, content, toggleOpen}) => {
   return (
     <div className="collapsible">
-      <button className="collapsible-header" onClick={toggleOpen}>
+      <button className="btn collapsible-header" onClick={toggleOpen}>
         {header}
       </button>
       {open && <div className="collapsible-content">{content}</div>}

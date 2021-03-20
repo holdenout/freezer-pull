@@ -23,17 +23,23 @@ const Content = ({food, isOpen}) => {
 
   return (
     <div className="food-content">
-      <button onClick={() => handleCarryover(food.carryover - 1)}>
+      <button
+        className="btn incr-decr-btn"
+        onClick={() => handleCarryover(food.carryover - 1)}
+      >
         &#xFF0D;
       </button>
       <input
-        className="carry-over"
+        className="food-input"
         type="tel"
         value={food.carryover}
         onChange={handleChange}
         ref={focusRef}
       />
-      <button onClick={() => handleCarryover(food.carryover + 1)}>
+      <button
+        className="btn incr-decr-btn"
+        onClick={() => handleCarryover(food.carryover + 1)}
+      >
         &#xFF0B;
       </button>
     </div>
@@ -49,7 +55,7 @@ export const CarryoverPage = () => {
         foodData={foodData}
         content={(contentProps) => <Content {...contentProps} />}
       >
-        <Link className="next" to="/pull">
+        <Link className="btn submit-btn next-btn" to="/pull">
           Continue to freezer pull
         </Link>
       </FoodList>
