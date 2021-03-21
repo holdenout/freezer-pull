@@ -65,3 +65,23 @@ exports.login = (req, res) => {
     });
   });
 };
+
+exports.verifyLoggedIn = (req, res) => {
+  User.getByName(req.username, (err, user) => {
+    if (err) {
+      res.status(500).send({
+        message: "Error retrieving user info.",
+      });
+      return;
+    }
+
+    if (!user) {
+      res.status(404).send({
+        message: "User not found",
+      });
+      return;
+    }
+
+    res.status(200).send({username: req.username});
+  });
+};

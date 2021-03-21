@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const user = require("../controllers/authController.js");
 const verifySignUp = require("../middleware/verifySignUp.js");
+const authJwt = require("../middleware/authJwt.js");
 
 router.use((req, res, next) => {
   res.header(
@@ -22,5 +23,7 @@ router.post(
 );
 
 router.post("/login", user.login);
+
+router.get("/verifyLogin", authJwt.verifyToken, user.verifyLoggedIn);
 
 module.exports = router;
