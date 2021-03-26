@@ -1,8 +1,8 @@
 import {useEffect} from "react";
 import {Switch, Route} from "react-router-dom";
-import LandingPage from "./components/pages/LandingPage.jsx";
-import CarryoverPage from "./components/pages/CarryoverPage.jsx";
-import PullPage from "./components/pages/PullPage.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
+import CarryoverPage from "./pages/CarryoverPage.jsx";
+import PullPage from "./pages/PullPage.jsx";
 import NavBar from "./components/NavBar.jsx";
 import {populateFoodStore} from "./util/populateFoodStore.js";
 import ScrollToTop from "./components/ScrollToTop.jsx";

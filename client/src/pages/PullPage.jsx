@@ -1,8 +1,8 @@
 import {useState, useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
-import {useStore} from "../useStore.js";
-import api from "../../adapters/pullAdapter.js";
-import FoodList from "../FoodList.jsx";
+import {useStore} from "../components/useStore.js";
+import api from "../adapters/pullAdapter.js";
+import FoodList from "../components/FoodList.jsx";
 
 // Content to display inside collapsible
 const Content = ({food, isOpen}) => {
