@@ -21,7 +21,8 @@ export const populateFoodStore = async () => {
     try {
       foodStore.addFood(foodService.createFood(item));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
+      console.log("Error adding food item. ");
     }
   });
 };
