@@ -1,5 +1,5 @@
 import {useState} from "react";
-import api from "../../adapters/authAdapter.js";
+import api from "../adapters/authAdapter.js";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
