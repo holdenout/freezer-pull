@@ -11,6 +11,9 @@ export const authAdapter = {
       return res.data;
     });
   },
+  verifyLogin: (token) => {
+    return api.get("/verifyLogin", {headers: {"x-access-token": token}});
+  },
 };
 
 export default authAdapter;
