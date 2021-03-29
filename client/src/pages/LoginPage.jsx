@@ -1,7 +1,7 @@
 import {useState} from "react";
 import api from "../adapters/authAdapter.js";
 
-const LoginForm = () => {
+const LoginForm = ({setIsLoggedIn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -32,6 +32,7 @@ const LoginForm = () => {
       return;
     }
     setMessage("");
+    setIsLoggedIn(true);
   };
 
   return (
@@ -105,8 +106,7 @@ const SignUpForm = () => {
       console.log(err.response.data.message);
       return;
     }
-    setMessage("");
-    console.log(response.data.message);
+    setMessage(response.data.message);
   };
 
   return (
@@ -157,10 +157,10 @@ const SignUpForm = () => {
   );
 };
 
-export const LoginPage = () => {
+export const LoginPage = (props) => {
   return (
     <div>
-      <LoginForm />
+      <LoginForm {...props} />
       <hr />
       <SignUpForm />
     </div>
