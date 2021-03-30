@@ -10,7 +10,7 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import api from "./adapters/authAdapter.js";
 import "./styles.css";
 
-const PageRoutes = () => {
+const PageRoutes = ({setIsLoggedIn}) => {
   return (
     <>
       <Route exact path="/">
@@ -22,7 +22,7 @@ const PageRoutes = () => {
       </Route>
 
       <Route path="/pull">
-        <PullPage />
+        <PullPage setIsLoggedIn={setIsLoggedIn} />
       </Route>
     </>
   );
@@ -70,7 +70,7 @@ export const App = () => {
         />
 
         {isLoggedIn ? (
-          <PageRoutes />
+          <PageRoutes setIsLoggedIn={setIsLoggedIn} />
         ) : (
           <Redirect to={{pathname: "/login", state: {referrer: pathname}}} />
         )}

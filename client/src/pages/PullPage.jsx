@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef} from "react";
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {useStore} from "../components/useStore.js";
 import api from "../adapters/pullAdapter.js";
 import FoodList from "../components/FoodList.jsx";
@@ -71,17 +71,30 @@ const Content = ({food, isOpen}) => {
   );
 };
 
-export const PullPage = () => {
+export const PullPage = ({setIsLoggedIn}) => {
   const [foodData] = useStore();
+  const history = useHistory();
 
   const handleSubmit = async (data) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      console.log("No signed in user");
+      setIsLoggedIn(false);
+      history.push("/login", {referrer: "/pull"})
+      return;
+    }
+
+    const token = user.accessToken;
     try {
-      await api.submitPull(data);
+      await api.submitPull(data, token);
     } catch (err) {
       console.log(err);
-      return false;
+      setIsLoggedIn(false);
+      history.push("/login", {referrer: "/pull"})
+      return;
     }
-    return true;
+    history.push("/")
+    return;
   };
 
   return (
@@ -90,13 +103,12 @@ export const PullPage = () => {
         foodData={foodData}
         content={(contentProps) => <Content {...contentProps} />}
       >
-        <Link
+        <button
           className="btn submit-btn next-btn"
-          to="/"
           onClick={() => handleSubmit(foodData)}
         >
           Submit pull
-        </Link>
+        </button>
       </FoodList>
     </div>
   );
