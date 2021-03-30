@@ -72,9 +72,7 @@ export const App = () => {
         {isLoggedIn ? (
           <PageRoutes />
         ) : (
-          <Redirect
-            to={{pathname: "/login", state: {referrer: pathname}}}
-          />
+          <Redirect to={{pathname: "/login", state: {referrer: pathname}}} />
         )}
       </Switch>
     </div>
