@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route, Redirect, useLocation} from "react-router-dom";
 import LoginPage from "./pages/LoginPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import CarryoverPage from "./pages/CarryoverPage.jsx";
@@ -30,6 +30,7 @@ const PageRoutes = () => {
 
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const {pathname} = useLocation();
 
   const checkLoggedIn = () => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -57,14 +58,24 @@ export const App = () => {
       <ScrollToTop />
 
       <Switch>
-        <Route path="/login">
-          {isLoggedIn ? (
-            <Redirect to="/" />
-          ) : (
-            <LoginPage setIsLoggedIn={setIsLoggedIn} />
-          )}
-        </Route>
-        {isLoggedIn ? <PageRoutes /> : <Redirect to="/login" />}
+        <Route
+          path="/login"
+          render={({location}) =>
+            isLoggedIn ? (
+              <Redirect to={location.state.referrer} />
+            ) : (
+              <LoginPage setIsLoggedIn={setIsLoggedIn} />
+            )
+          }
+        />
+
+        {isLoggedIn ? (
+          <PageRoutes />
+        ) : (
+          <Redirect
+            to={{pathname: "/login", state: {referrer: pathname}}}
+          />
+        )}
       </Switch>
     </div>
   );
