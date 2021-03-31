@@ -56,7 +56,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <ScrollToTop />
 
       <Switch>

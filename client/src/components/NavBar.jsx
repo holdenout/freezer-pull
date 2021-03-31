@@ -1,7 +1,8 @@
 import {Switch, Route, Link} from "react-router-dom";
+import LogoutButton from "./LogoutButton.jsx";
 import "./NavBar.css";
 
-export const NavBar = (props) => {
+export const NavBar = ({isLoggedIn, setIsLoggedIn}) => {
   return (
     <div className="navbar">
       <Switch>
@@ -23,6 +24,7 @@ export const NavBar = (props) => {
           <div className="title">Pull</div>
         </Route>
       </Switch>
+      {isLoggedIn && <LogoutButton setIsLoggedIn={setIsLoggedIn} />}
     </div>
   );
 };
