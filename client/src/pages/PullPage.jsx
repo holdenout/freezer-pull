@@ -80,7 +80,7 @@ export const PullPage = ({setIsLoggedIn}) => {
     if (!user) {
       console.log("No signed in user");
       setIsLoggedIn(false);
-      history.push("/login", {referrer: "/pull"})
+      history.push("/login", {referrer: "/pull"});
       return;
     }
 
@@ -90,10 +90,10 @@ export const PullPage = ({setIsLoggedIn}) => {
     } catch (err) {
       console.log(err);
       setIsLoggedIn(false);
-      history.push("/login", {referrer: "/pull"})
+      history.push("/login", {referrer: "/pull"});
       return;
     }
-    history.push("/")
+    history.push("/");
     return;
   };
 

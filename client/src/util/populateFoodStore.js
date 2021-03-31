@@ -3,13 +3,18 @@ import {foodStore} from "../store/FoodStore.js";
 import {foodService} from "../domain/FoodService.js";
 
 const getFoodFromDb = async () => {
-  const res = await api.getAll();
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const token = user.accessToken;
+
+  const res = await api.getAll(token);
   const allFood = res.data;
   return allFood;
 };
 
 export const populateFoodStore = async () => {
   let allFood = [];
+
   try {
     allFood = await getFoodFromDb();
   } catch (err) {

@@ -46,11 +46,13 @@ export const App = () => {
   };
 
   useEffect(() => {
-    // Populate food store from db (needs local fallback as failsafe)
-    populateFoodStore();
-
     checkLoggedIn();
   }, []);
+
+  useEffect(() => {
+    // Populate food store from db (needs local fallback as failsafe)
+    if (isLoggedIn) populateFoodStore();
+  }, [isLoggedIn]);
 
   return (
     <div className="App">
