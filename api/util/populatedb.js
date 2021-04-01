@@ -29,7 +29,8 @@ const initDb = () => {
     insertValue: "INSERT INTO food_items SET ?;",
     createPulls: `CREATE TABLE IF NOT EXISTS pulls (
       id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-      pull_date TIMESTAMP NOT NULL
+      pull_date TIMESTAMP NOT NULL,
+      user VARCHAR(15) DEFAULT 'unknownUser'
     );`,
     createFoodItemPull: `CREATE TABLE IF NOT EXISTS food_item_pull (
       pull_id INT UNSIGNED NOT NULL,
