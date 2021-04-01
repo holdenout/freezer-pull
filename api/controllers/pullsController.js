@@ -3,7 +3,7 @@ const FoodItemPull = require("../models/foodItemPullModel.js");
 
 exports.executePull = async (req, res) => {
   let pull_id = await new Promise((resolve) => {
-    Pull.create((err, data) => {
+    Pull.create(req.username, (err, data) => {
       if (err) {
         res.status(500).send({
           message: err.message || "Error occurred while creating pull entry.",
