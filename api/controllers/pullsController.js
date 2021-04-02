@@ -35,7 +35,10 @@ exports.executePull = async (req, res) => {
 };
 
 exports.getFoodPullInfo = (req, res) => {
-  FoodItemPull.getFoodPullInfo(req.body.sku, req.body.numberRequested, (err, data) => {
+  const sku = parseInt(req.query.sku);
+  const numberRequested = parseInt(req.query.numberRequested);
+
+  FoodItemPull.getFoodPullInfo(sku, numberRequested, (err, data) => {
     if (err) {
       res.status(500).send({
         message:
@@ -43,6 +46,7 @@ exports.getFoodPullInfo = (req, res) => {
       });
     }
 
+    console.log("Sending food pull info");
     res.status(200).send(data);
   });
 };
