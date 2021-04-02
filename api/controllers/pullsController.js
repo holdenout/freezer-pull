@@ -33,3 +33,16 @@ exports.executePull = async (req, res) => {
     res.status(201).send(data);
   });
 };
+
+exports.getFoodPullInfo = (req, res) => {
+  FoodItemPull.getFoodPullInfo(req.body.sku, req.body.numberRequested, (err, data) => {
+    if (err) {
+      res.status(500).send({
+        message:
+          err.message || "Error ocurred while inserting food item pull info.",
+      });
+    }
+
+    res.status(200).send(data);
+  });
+};
