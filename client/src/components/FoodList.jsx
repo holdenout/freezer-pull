@@ -1,5 +1,5 @@
 import {useState} from "react";
-import Collapsible from "./Collapsible.jsx";
+import {Collapsible} from "./Collapsible.jsx";
 import {ScrollToTopButton} from "./ScrollToTopButton.jsx";
 import "./FoodList.css";
 

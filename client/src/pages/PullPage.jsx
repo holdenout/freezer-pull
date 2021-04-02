@@ -1,11 +1,14 @@
 import {useState, useEffect, useRef} from "react";
 import {useHistory} from "react-router-dom";
 import {useStore} from "../components/useStore.js";
+import {SmallCollapsible} from "../components/Collapsible.jsx";
 import api from "../adapters/pullAdapter.js";
 import FoodList from "../components/FoodList.jsx";
 
 // Content to display inside collapsible
 const Content = ({food, isOpen}) => {
+  const [moreInfo, setMoreInfo] = useState(false);
+
   const [pull, setPull] = useState(
     food.pullSubmitted
       ? food.pull
@@ -62,6 +65,12 @@ const Content = ({food, isOpen}) => {
           &#xFF0B;
         </button>
       </div>
+      <SmallCollapsible
+        open={moreInfo}
+        toggleOpen={() => setMoreInfo(!moreInfo)}
+      >
+        FILLER
+      </SmallCollapsible>
       <div>
         <button className="btn submit-btn" onClick={handleSubmit}>
           Submit
