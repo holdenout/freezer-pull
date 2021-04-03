@@ -28,7 +28,7 @@ app.use("/pull", pullRouter);
 app.use("/auth", authRouter);
 
 if (process.env.NODE_ENV === "production") {
-  const buildPath = "/client/build"
+  const buildPath = "/client/build";
   app.use(express.static(path.join(__dirname, buildPath)));
   app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, buildPath, "index.html"));
