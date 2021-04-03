@@ -4,6 +4,7 @@
   "description": "Pull from freezer inventory for front of house food sales.",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "startdev": "nodemon server.js",
     "runall": "nodemon server.js & npm start --prefix ./client",
     "runprod": "NODE_ENV=production nodemon server.js",
