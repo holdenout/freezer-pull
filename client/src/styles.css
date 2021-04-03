@@ -66,6 +66,16 @@ form label {
   width: 50%;
 }
 
+table {
+  width: 100%;
+}
+
+table, th, td {
+  font-size: 80%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 .btn {
   font-size: 100%;
   font-family: inherit;
