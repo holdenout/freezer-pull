@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const foodRouter = require("./api/routes/foodRoutes.js");
@@ -17,17 +18,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // enable CORS for react dev environment
-// not needed if client is served from here
-//   TODO: correct for production
-app.use(cors({origin: "http://localhost:3000"}));
-
-app.get("/", (req, res) => {
-  res.json({message: "freezer-pull app running"});
-});
+// not needed if client is served from backend
+if (process.env.NODE_ENV !== "production") {
+  app.use(cors({origin: "http://localhost:3000"}));
+}
 
 app.use("/food", foodRouter);
 app.use("/pull", pullRouter);
 app.use("/auth", authRouter);
+
+if (process.env.NODE_ENV === "production") {
+  const buildPath = "/client/build"
+  app.use(express.static(path.join(__dirname, buildPath)));
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, buildPath, "index.html"));
+  });
+}
 
 // set port, listen for requests
 const port = parseInt(process.env.PORT) || 4000;
