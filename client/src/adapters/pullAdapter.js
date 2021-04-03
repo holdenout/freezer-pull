@@ -7,6 +7,11 @@ export const pullAdapter = {
       {pullData: pullData},
       {headers: {"x-access-token": token}}
     ),
+  foodPullInfo: (sku, numberRequested, token) =>
+    api.get("/foodPullInfo", {
+      params: {sku: sku, numberRequested: numberRequested},
+      headers: {"x-access-token": token},
+    }),
 };
 
 export default pullAdapter;

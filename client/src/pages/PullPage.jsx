@@ -2,11 +2,12 @@ import {useState, useEffect, useRef} from "react";
 import {useHistory} from "react-router-dom";
 import {useStore} from "../components/useStore.js";
 import {SmallCollapsible} from "../components/Collapsible.jsx";
+import {FoodPullInfoTable} from "../components/FoodPullInfoTable.jsx";
 import api from "../adapters/pullAdapter.js";
 import FoodList from "../components/FoodList.jsx";
 
 // Content to display inside collapsible
-const Content = ({food, isOpen}) => {
+const Content = ({food, isOpen, setIsLoggedIn}) => {
   const [moreInfo, setMoreInfo] = useState(false);
 
   const [pull, setPull] = useState(
@@ -69,7 +70,7 @@ const Content = ({food, isOpen}) => {
         open={moreInfo}
         toggleOpen={() => setMoreInfo(!moreInfo)}
       >
-        FILLER
+        <FoodPullInfoTable sku={food.sku} setIsLoggedIn={setIsLoggedIn} />
       </SmallCollapsible>
       <div>
         <button className="btn submit-btn" onClick={handleSubmit}>
@@ -110,7 +111,9 @@ export const PullPage = ({setIsLoggedIn}) => {
     <div>
       <FoodList
         foodData={foodData}
-        content={(contentProps) => <Content {...contentProps} />}
+        content={(contentProps) => (
+          <Content setIsLoggedIn={setIsLoggedIn} {...contentProps} />
+        )}
       >
         <button
           className="btn submit-btn next-btn"

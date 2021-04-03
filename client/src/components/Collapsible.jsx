@@ -22,7 +22,7 @@ export const SmallCollapsible = ({open, children, toggleOpen}) => {
         onClick={toggleOpen}
       >
         <div className="arrow">{open ? "\uFF0D" : "\uFF0B"}</div>
-          &nbsp;Previous Pull Info
+        &nbsp;Previous Pull Info
       </button>
       {open && <div className="collapsible-content">{children}</div>}
     </div>
