@@ -6,16 +6,15 @@
   "scripts": {
     "startdev": "nodemon server.js",
     "runall": "nodemon server.js & npm start --prefix ./client",
+    "runprod": "NODE_ENV=production nodemon server.js",
     "formatcheck": "npx prettier --check server.js \"api/**/*\"",
-    "format": "npx prettier --write server.js \"api/**/*\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prodtest": "NODE_ENV=production nodemon server.js"
+    "format": "npx prettier --write server.js \"api/**/*\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/holdenout/freezer-pull.git"
   },
-  "author": "",
+  "author": "Holden Sheftel",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/holdenout/freezer-pull/issues"

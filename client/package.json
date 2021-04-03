@@ -14,8 +14,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "prettiercheck": "npx prettier --check \"src/**/*\"",
-    "prettierwrite": "npx prettier --write \"src/**/*\""
+    "formatcheck": "npx prettier --check \"src/**/*\"",
+    "format": "npx prettier --write \"src/**/*\""
   },
   "eslintConfig": {
     "extends": [
