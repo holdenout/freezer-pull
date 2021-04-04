@@ -12,7 +12,8 @@
     "runall": "nodemon server.js & npm start --prefix ./client",
     "runprod": "NODE_ENV=production nodemon server.js",
     "formatcheck": "npx prettier --check server.js \"api/**/*\"",
-    "format": "npx prettier --write server.js \"api/**/*\""
+    "format": "npx prettier --write server.js \"api/**/*\"",
+    "heroku-postbuild": "npm ci --prefix ./client && npm run build --prefix ./client"
   },
   "repository": {
     "type": "git",
