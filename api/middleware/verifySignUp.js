@@ -14,6 +14,16 @@ const validateUsernameFormat = (req, res, next) => {
       message: "Invalid username",
     });
     return;
+  } else if (newUsername.toLowerCase() === "appropriate") {
+    res.status(400).send({
+      message: `The username '${newUsername}' is inappropriate because only I am allowed to make jokes that bad`,
+    });
+    return;
+  } else if (newUsername.toLowerCase() === "inappropriate") {
+    res.status(400).send({
+      message: `Oh you think you're clever, do you? Well too bad. You can't use '${newUsername}'`,
+    });
+    return;
   }
 
   next();
