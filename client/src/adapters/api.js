@@ -2,8 +2,8 @@ import axios from "axios";
 
 const baseURL =
   process.env.NODE_ENV === "production"
-    ? "http://localhost:4000"
-    : "https://freezer-pull.herokuapp.com";
+    ? "https://freezer-pull.herokuapp.com"
+    : "http://localhost:4000";
 
 export const foodApi = axios.create({
   baseURL: `${baseURL}/food`,
