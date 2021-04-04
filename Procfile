@@ -1,2 +1,2 @@
 web: npm start
-release: npm run build --prefix ./client
+release: npm install --prefix ./client && npm run build --prefix ./client
