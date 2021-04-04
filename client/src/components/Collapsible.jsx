@@ -1,8 +1,15 @@
+import {useRef, useEffect} from "react";
 import "./Collapsible.css";
 
 export const Collapsible = ({open, header, content, toggleOpen}) => {
+  const itemRef = useRef(null);
+
+  useEffect(() => {
+    if (open) itemRef.current.scrollIntoView();
+  }, [open])
+
   return (
-    <div className="collapsible">
+    <div className="collapsible" ref={itemRef}>
       <button
         className="btn collapsible-header big-header"
         onClick={toggleOpen}
