@@ -43,9 +43,6 @@ const initDb = () => {
       username VARCHAR(15) NOT NULL PRIMARY KEY,
       password CHAR(60) NOT NULL
     );`,
-    createDefaultUser: `INSERT INTO users (username, password) VALUES (
-      'default', 'password'
-    );`,
   };
 
   // Execute db operations
@@ -101,12 +98,6 @@ const initDb = () => {
         if (err) throw err;
         console.log("Added sample food_item.");
       });
-    });
-
-    // Add default user
-    connection.query(queries.createDefaultUser, (err) => {
-      if (err) throw err;
-      console.log("Created default user");
     });
 
     // End connection
