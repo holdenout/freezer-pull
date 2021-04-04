@@ -49,12 +49,6 @@ const initDb = () => {
     if (err) throw err;
     console.log("Connected to database.");
 
-    // Select db for use
-    connection.query(queries.use, (err) => {
-      if (err) throw err;
-      console.log(`Using \`${dbConfig.DB}\`.`);
-    });
-
     // Create tables
     connection.query(queries.createFoodItems, (err) => {
       if (err) throw err;
