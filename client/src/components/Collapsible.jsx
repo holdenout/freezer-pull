@@ -6,7 +6,7 @@ export const Collapsible = ({open, header, content, toggleOpen}) => {
 
   useEffect(() => {
     if (open) itemRef.current.scrollIntoView();
-  }, [open])
+  }, [open]);
 
   return (
     <div className="collapsible" ref={itemRef}>

@@ -70,7 +70,9 @@ table {
   width: 100%;
 }
 
-table, th, td {
+table,
+th,
+td {
   font-size: 80%;
   border: 1px solid black;
   border-collapse: collapse;
