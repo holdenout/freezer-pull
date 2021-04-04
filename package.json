@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Pull from freezer inventory for front of house food sales.",
   "main": "server.js",
+  "engines": {
+    "node": "15.x"
+  },
   "scripts": {
     "start": "node server.js",
     "startdev": "nodemon server.js",
