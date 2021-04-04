@@ -129,6 +129,7 @@ const SignUpForm = () => {
           <li>must be at least 3 characters</li>
           <li>must start with a letter</li>
           <li>contain only A-Z, a-z, 0-9, and _</li>
+          <li>please make it appropriate as others may see this</li>
         </ul>
       </label>
       <label htmlFor="new-password">
