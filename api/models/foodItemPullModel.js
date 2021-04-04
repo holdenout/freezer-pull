@@ -11,6 +11,7 @@ FoodItemPull.addPulledFood = (foodPullData, res) => {
       if (err) {
         console.log("Error: ", err);
         res(err, null);
+        return;
       }
 
       console.log("Added food pull data.");
@@ -33,6 +34,7 @@ FoodItemPull.getFoodPullInfo = (sku, numberRequested, res) => {
       if (err) {
         console.log("Error:", err);
         res(err, null);
+        return;
       }
 
       console.log("Retrieved pull data for sku:", sku);

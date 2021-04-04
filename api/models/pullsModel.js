@@ -11,6 +11,7 @@ Pull.create = (user, res) => {
       if (err) {
         console.log("Error: ", error);
         res(err, null);
+        return;
       }
 
       console.log("Pull created.");

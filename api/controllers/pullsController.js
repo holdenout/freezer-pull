@@ -44,6 +44,7 @@ exports.getFoodPullInfo = (req, res) => {
         message:
           err.message || "Error ocurred while inserting food item pull info.",
       });
+      return;
     }
 
     console.log("Sending food pull info");

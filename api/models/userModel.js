@@ -10,6 +10,7 @@ User.create = (user, res) => {
     if (err) {
       console.log("Error: ", err);
       res(err, null);
+      return;
     }
 
     console.log("User created.");
