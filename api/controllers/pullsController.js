@@ -42,7 +42,7 @@ exports.getFoodPullInfo = (req, res) => {
     if (err) {
       res.status(500).send({
         message:
-          err.message || "Error ocurred while inserting food item pull info.",
+          err.message || "Error ocurred while retrieving food item pull info.",
       });
       return;
     }

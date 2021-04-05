@@ -22,7 +22,7 @@ FoodItemPull.addPulledFood = (foodPullData, res) => {
 
 FoodItemPull.getFoodPullInfo = (sku, numberRequested, res) => {
   db.query(
-    `SELECT pulls.user, food_item_pull.*
+    `SELECT pulls.user, pulls.pull_date, food_item_pull.*
      FROM pulls
      INNER JOIN food_item_pull
        ON pulls.id = food_item_pull.pull_id

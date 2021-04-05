@@ -29,8 +29,13 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
   }, [history, sku, setIsLoggedIn]);
 
   const rows = foodPullInfo.map((data) => {
+    const dateObj = new Date(data.pull_date);
+    const dateStr = dateObj.toLocaleString("en-US", {month: "short", day: "2-digit"});
+    const timeStr = dateObj.toLocaleString("en-US", {hour: "2-digit", minute: "2-digit"});
+
     return (
       <tr key={data.pull_id}>
+        <td><pre>{`${dateStr}\n${timeStr}`}</pre></td>
         <td>{data.user}</td>
         <td>{data.carryover}</td>
         <td>{data.pulled}</td>
@@ -43,6 +48,7 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
     <table>
       <thead>
         <tr>
+          <th>Date</th>
           <th>User</th>
           <th>Carryover</th>
           <th>Pulled</th>
