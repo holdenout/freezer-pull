@@ -30,6 +30,10 @@ form div {
   text-align: center;
 }
 
+.loader {
+  width: 2em;
+}
+
 form .message {
   color: var(--main-color);
 }

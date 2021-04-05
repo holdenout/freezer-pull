@@ -1,10 +1,12 @@
 import {useState} from "react";
 import api from "../adapters/authAdapter.js";
+import loader from "../assets/coffeeLoader.gif";
 
 const LoginForm = ({setIsLoggedIn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
     const {name: targetName, value} = event.target;
@@ -15,6 +17,7 @@ const LoginForm = ({setIsLoggedIn}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     setUsername("");
     setPassword("");
@@ -27,10 +30,12 @@ const LoginForm = ({setIsLoggedIn}) => {
     try {
       await api.login(username, password);
     } catch (err) {
+      setIsLoading(false);
       setMessage(err.response.data.message);
       console.log(err.response.data.message);
       return;
     }
+    setIsLoading(false);
     setMessage("");
     setIsLoggedIn(true);
   };
@@ -38,6 +43,7 @@ const LoginForm = ({setIsLoggedIn}) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="form-title">Login</h2>
+
       <label htmlFor="username">
         Username:
         <br />
@@ -52,6 +58,7 @@ const LoginForm = ({setIsLoggedIn}) => {
           required
         />
       </label>
+
       <label htmlFor="password">
         Password:
         <br />
@@ -66,10 +73,18 @@ const LoginForm = ({setIsLoggedIn}) => {
           required
         />
       </label>
+
       {message && <div className="message">{message}</div>}
-      <div>
-        <input className="btn submit-btn" type="submit" value="Submit" />
-      </div>
+
+      {isLoading ? (
+        <div>
+          <img className="loader" src={loader} alt="loading..." />
+        </div>
+      ) : (
+        <div>
+          <input className="btn submit-btn" type="submit" value="Submit" />
+        </div>
+      )}
     </form>
   );
 };
@@ -78,6 +93,7 @@ const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
     const {name: targetName, value} = event.target;
@@ -88,6 +104,7 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     setUsername("");
     setPassword("");
@@ -100,8 +117,9 @@ const SignUpForm = () => {
     let response;
     try {
       response = await api.signUp(username, password);
-      setMessage(response.data.message);
+      setIsLoading(false);
     } catch (err) {
+      setIsLoading(false);
       setMessage(err.response.data.message);
       console.log(err.response.data.message);
       return;
@@ -112,6 +130,7 @@ const SignUpForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="form-title">Sign Up</h2>
+
       <label htmlFor="new-username">
         Username:
         <br />
@@ -132,6 +151,7 @@ const SignUpForm = () => {
           <li>please make it appropriate as others may see this</li>
         </ul>
       </label>
+
       <label htmlFor="new-password">
         Password:
         <br />
@@ -150,10 +170,18 @@ const SignUpForm = () => {
           <li>can contain letters, numbers, and symbols</li>
         </ul>
       </label>
+
       {message && <div className="message">{message}</div>}
-      <div>
-        <input className="btn submit-btn" type="submit" value="Submit" />
-      </div>
+
+      {isLoading ? (
+        <div>
+          <img className="loader" src={loader} alt="loading..." />
+        </div>
+      ) : (
+        <div>
+          <input className="btn submit-btn" type="submit" value="Submit" />
+        </div>
+      )}
     </form>
   );
 };

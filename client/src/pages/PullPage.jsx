@@ -5,6 +5,7 @@ import {SmallCollapsible} from "../components/Collapsible.jsx";
 import {FoodPullInfoTable} from "../components/FoodPullInfoTable.jsx";
 import api from "../adapters/pullAdapter.js";
 import FoodList from "../components/FoodList.jsx";
+import loader from "../assets/coffeeLoader.gif";
 
 // Content to display inside collapsible
 const Content = ({food, isOpen, setIsLoggedIn}) => {
@@ -84,6 +85,7 @@ const Content = ({food, isOpen, setIsLoggedIn}) => {
 export const PullPage = ({setIsLoggedIn}) => {
   const [foodData] = useStore();
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (data) => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -94,15 +96,18 @@ export const PullPage = ({setIsLoggedIn}) => {
       return;
     }
 
+    setIsLoading(true);
     const token = user.accessToken;
     try {
       await api.submitPull(data, token);
     } catch (err) {
       console.log(err);
+      setIsLoading(false);
       setIsLoggedIn(false);
       history.push("/login", {referrer: "/pull"});
       return;
     }
+    setIsLoading(false);
     history.push("/");
     return;
   };
@@ -115,12 +120,16 @@ export const PullPage = ({setIsLoggedIn}) => {
           <Content setIsLoggedIn={setIsLoggedIn} {...contentProps} />
         )}
       >
-        <button
-          className="btn submit-btn next-btn"
-          onClick={() => handleSubmit(foodData)}
-        >
-          Submit pull
-        </button>
+        {isLoading ? (
+          <img className="loader" src={loader} alt="loading" />
+        ) : (
+          <button
+            className="btn submit-btn next-btn"
+            onClick={() => handleSubmit(foodData)}
+          >
+            Submit pull
+          </button>
+        )}
       </FoodList>
     </div>
   );
