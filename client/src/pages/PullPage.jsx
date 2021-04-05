@@ -1,6 +1,6 @@
 import {useState, useEffect, useRef} from "react";
 import {useHistory} from "react-router-dom";
-import {useStore} from "../components/useStore.js";
+import {useStore} from "../hooks/useStore.js";
 import {SmallCollapsible} from "../components/Collapsible.jsx";
 import {FoodPullInfoTable} from "../components/FoodPullInfoTable.jsx";
 import api from "../adapters/pullAdapter.js";

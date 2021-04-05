@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
-import {useStore} from "../components/useStore.js";
+import {useStore} from "../hooks/useStore.js";
 import FoodList from "../components/FoodList.jsx";
 
 // Content to display inside collapsible
