@@ -17,8 +17,10 @@ app.use(bodyParser.json());
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 
-// intentional slowdown to test loading spinners
-app.use((req, res, next) => setTimeout(next, 2000));
+// intentional slowdown to display loading spinners
+app.use((req, res, next) =>
+  setTimeout(next, process.env.ARTIFICIAL_DELAY || 1000)
+);
 
 // enable CORS for react dev environment
 // not needed if client is served from backend
