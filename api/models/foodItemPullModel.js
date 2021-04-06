@@ -27,7 +27,7 @@ FoodItemPull.getFoodPullInfo = (sku, numberRequested, res) => {
      INNER JOIN food_item_pull
        ON pulls.id = food_item_pull.pull_id
        AND food_item_pull.food_item_sku = ?
-     ORDER BY food_item_pull.pull_id
+     ORDER BY food_item_pull.pull_id DESC
      LIMIT ?;`,
     [sku, numberRequested],
     (err, data) => {
