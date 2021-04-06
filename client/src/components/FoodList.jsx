@@ -21,8 +21,10 @@ export const FoodList = ({foodData, content, children}) => {
       return food.name.toLowerCase().includes(search.toLowerCase());
     })
     .map((food) => {
+      const fade = food.pullSubmitted ? "fade" : "";
+
       return (
-        <li key={food.sku}>
+        <li className={fade} key={food.sku}>
           <Collapsible
             open={isOpen === food.sku}
             header={food.name}

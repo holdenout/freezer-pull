@@ -60,6 +60,10 @@ form label {
   text-align: center;
 }
 
+.fade {
+  background-color: grey;
+}
+
 .pull-info {
   margin-bottom: 0.5em;
 }
