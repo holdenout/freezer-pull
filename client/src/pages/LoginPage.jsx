@@ -17,10 +17,8 @@ const LoginForm = ({setIsLoggedIn}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setMessage("");
     setIsLoading(true);
-
-    setUsername("");
-    setPassword("");
 
     const {
       username: {value: username},
@@ -35,6 +33,10 @@ const LoginForm = ({setIsLoggedIn}) => {
       console.log(err.response.data.message);
       return;
     }
+
+    setUsername("");
+    setPassword("");
+
     setIsLoading(false);
     setMessage("");
     setIsLoggedIn(true);
@@ -105,9 +107,7 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-
-    setUsername("");
-    setPassword("");
+    setMessage("");
 
     const {
       username: {value: username},
@@ -124,6 +124,10 @@ const SignUpForm = () => {
       console.log(err.response.data.message);
       return;
     }
+
+    setUsername("");
+    setPassword("");
+
     setMessage(response.data.message);
   };
 
