@@ -83,11 +83,21 @@ const Content = ({food, isOpen, setIsLoggedIn}) => {
 };
 
 export const PullPage = ({setIsLoggedIn}) => {
-  const [foodData] = useStore();
+  const [foodData, updatePull, updatePullSubmitted] = useStore(["pull", "pullSubmitted"]);
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (data) => {
+    // Set all unpulled items to pull par - carryover
+    //   -this would be an undesired operation in practice, but
+    //    is best for good data display demonstration
+    foodData.forEach((food) => {
+      if (!food.pullSubmitted) {
+        updatePull(food, food.par - food.carryover);
+        updatePullSubmitted(food, true);
+      }
+    });
+
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
       console.log("No signed in user");
