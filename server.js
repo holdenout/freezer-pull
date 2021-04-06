@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // intentional slowdown to display loading spinners
 app.use((req, res, next) =>
-  setTimeout(next, process.env.ARTIFICIAL_DELAY || 1000)
+  setTimeout(next, parseInt(process.env.ARTIFICIAL_DELAY) || 1000)
 );
 
 // enable CORS for react dev environment
