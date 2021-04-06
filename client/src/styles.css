@@ -60,10 +60,6 @@ form label {
   text-align: center;
 }
 
-.fade {
-  background-color: grey;
-}
-
 .pull-info {
   margin-bottom: 0.5em;
 }
@@ -104,6 +100,10 @@ table pre {
   cursor: pointer;
   outline: none;
   border: none;
+}
+
+.btn.fade {
+  background-color: grey;
 }
 
 .incr-decr-btn {

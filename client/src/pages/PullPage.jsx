@@ -126,6 +126,7 @@ export const PullPage = ({setIsLoggedIn}) => {
     <div>
       <FoodList
         foodData={foodData}
+        fadeOnSubmit={true}
         content={(contentProps) => (
           <Content setIsLoggedIn={setIsLoggedIn} {...contentProps} />
         )}

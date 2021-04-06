@@ -3,7 +3,7 @@ import {Collapsible} from "./Collapsible.jsx";
 import {ScrollToTopButton} from "./ScrollToTopButton.jsx";
 import "./FoodList.css";
 
-export const FoodList = ({foodData, content, children}) => {
+export const FoodList = ({foodData, fadeOnSubmit, content, children}) => {
   const [isOpen, setOpen] = useState(null);
   const [search, setSearch] = useState("");
 
@@ -21,13 +21,12 @@ export const FoodList = ({foodData, content, children}) => {
       return food.name.toLowerCase().includes(search.toLowerCase());
     })
     .map((food) => {
-      const fade = food.pullSubmitted ? "fade" : "";
-
       return (
-        <li className={fade} key={food.sku}>
+        <li key={food.sku}>
           <Collapsible
             open={isOpen === food.sku}
             header={food.name}
+            fadeHeader={food.pullSubmitted && fadeOnSubmit}
             content={content({food, isOpen})}
             toggleOpen={() => toggleOpen(food.sku)}
           />
