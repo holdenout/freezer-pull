@@ -1,12 +1,16 @@
 import {useState, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import api from "../adapters/pullAdapter.js";
+import loader from "../assets/coffeeLoader.gif";
 
 export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
   const [foodPullInfo, setFoodPullInfo] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
 
   useEffect(() => {
+    setIsLoading(true);
+
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
       console.log("No signed in user");
@@ -19,6 +23,7 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
     api.foodPullInfo(sku, 5, token).then(
       ({data}) => {
         setFoodPullInfo(data);
+        setIsLoading(false);
       },
       (err) => {
         console.log(err);
@@ -53,18 +58,24 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
   });
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>User</th>
-          <th>Carryover</th>
-          <th>Pulled</th>
-          <th>Final Par</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
+    <>
+      {isLoading ? (
+        <img className="loader" src={loader} alt="loading..." />
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>User</th>
+              <th>Carryover</th>
+              <th>Pulled</th>
+              <th>Final Par</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </table>
+      )}
+    </>
   );
 };
 
