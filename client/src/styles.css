@@ -83,7 +83,7 @@ td {
 }
 
 td {
-  overflow: scroll;
+  overflow: auto;
   max-width: 5em;
 }
 
