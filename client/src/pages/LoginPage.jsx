@@ -1,18 +1,18 @@
 import {useState} from "react";
 import api from "../adapters/authAdapter.js";
 import loader from "../assets/coffeeLoader.gif";
+import * as R from "ramda";
 
 const LoginForm = ({setIsLoggedIn}) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [formFields, setFormFields] = useState({
+    username: "",
+    password: "",
+  });
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (event) => {
-    const {name: targetName, value} = event.target;
-
-    if (targetName === "username") setUsername(value);
-    if (targetName === "password") setPassword(value);
+  const handleChange = ({target}) => {
+    setFormFields(R.assoc(target.name, target.value, formFields));
   };
 
   const handleSubmit = async (event) => {
@@ -34,8 +34,7 @@ const LoginForm = ({setIsLoggedIn}) => {
       return;
     }
 
-    setUsername("");
-    setPassword("");
+    setFormFields(R.map(() => "", formFields));
 
     setIsLoading(false);
     setMessage("");
@@ -55,7 +54,7 @@ const LoginForm = ({setIsLoggedIn}) => {
           id="username"
           name="username"
           placeholder="Enter username"
-          value={username}
+          value={formFields.username}
           onChange={handleChange}
           required
         />
@@ -70,7 +69,7 @@ const LoginForm = ({setIsLoggedIn}) => {
           id="password"
           name="password"
           placeholder="Enter password"
-          value={password}
+          value={formFields.password}
           onChange={handleChange}
           required
         />
@@ -92,18 +91,16 @@ const LoginForm = ({setIsLoggedIn}) => {
 };
 
 const SignUpForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [formFields, setFormFields] = useState({
+    username: "",
+    password: "",
+    passwordConfirm: "",
+  });
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (event) => {
-    const {name: targetName, value} = event.target;
-
-    if (targetName === "username") setUsername(value);
-    if (targetName === "password") setPassword(value);
-    if (targetName === "passwordConfirm") setPasswordConfirm(value);
+  const handleChange = ({target}) => {
+    setFormFields(R.assoc(target.name, target.value, formFields));
   };
 
   const handleSubmit = async (event) => {
@@ -114,7 +111,7 @@ const SignUpForm = () => {
     const {
       username: {value: username},
       password: {value: password},
-      passwordConfirm: {value: passwordConfirm}
+      passwordConfirm: {value: passwordConfirm},
     } = event.target;
 
     if (password !== passwordConfirm) {
@@ -134,8 +131,7 @@ const SignUpForm = () => {
       return;
     }
 
-    setUsername("");
-    setPassword("");
+    setFormFields(R.map(() => "", formFields));
 
     setMessage(response.data.message);
   };
@@ -153,7 +149,7 @@ const SignUpForm = () => {
           id="new-username"
           name="username"
           placeholder="New username"
-          value={username}
+          value={formFields.username}
           onChange={handleChange}
           required
         />
@@ -174,7 +170,7 @@ const SignUpForm = () => {
           id="new-password"
           name="password"
           placeholder="New password"
-          value={password}
+          value={formFields.password}
           onChange={handleChange}
           required
         />
@@ -193,7 +189,7 @@ const SignUpForm = () => {
           id="password-confirm"
           name="passwordConfirm"
           placeholder="Confirm password"
-          value={passwordConfirm}
+          value={formFields.passwordConfirm}
           onChange={handleChange}
           required
         />
