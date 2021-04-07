@@ -32,9 +32,9 @@ const PageRoutes = ({setIsLoggedIn}) => {
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const {pathname} = useLocation();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const checkLoggedIn = () => {
+  const checkLoggedIn = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
       console.log("No signed in user");
@@ -42,20 +42,22 @@ export const App = () => {
     }
 
     const token = user.accessToken;
-    api.verifyLogin(token).then((res) => {
+    await api.verifyLogin(token).then((res) => {
       if (res.status === 200) setIsLoggedIn(true);
     });
   };
 
   useEffect(() => {
-    checkLoggedIn();
-  }, []);
-
-  useEffect(() => {
-    setIsLoading(true);
-    // Populate food store from db (needs local fallback as failsafe)
-    if (isLoggedIn) populateFoodStore().then(() => setIsLoading(false));
-    else setIsLoading(false);
+    checkLoggedIn().then(
+      async () => {
+        // Populate food store from db (needs local fallback as failsafe
+        if (isLoggedIn) {
+          await populateFoodStore();
+          setIsLoading(false);
+        } else setIsLoading(false);
+      },
+      () => setIsLoading(false)
+    );
   }, [isLoggedIn]);
 
   return (
