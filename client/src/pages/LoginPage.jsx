@@ -94,6 +94,7 @@ const LoginForm = ({setIsLoggedIn}) => {
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -102,6 +103,7 @@ const SignUpForm = () => {
 
     if (targetName === "username") setUsername(value);
     if (targetName === "password") setPassword(value);
+    if (targetName === "passwordConfirm") setPasswordConfirm(value);
   };
 
   const handleSubmit = async (event) => {
@@ -112,7 +114,14 @@ const SignUpForm = () => {
     const {
       username: {value: username},
       password: {value: password},
+      passwordConfirm: {value: passwordConfirm}
     } = event.target;
+
+    if (password !== passwordConfirm) {
+      setMessage("Passwords do not match");
+      setIsLoading(false);
+      return;
+    }
 
     let response;
     try {
@@ -173,6 +182,21 @@ const SignUpForm = () => {
           <li>must be at least 5 characters</li>
           <li>can contain letters, numbers, and symbols</li>
         </ul>
+      </label>
+
+      <label htmlFor="password-confirm">
+        Password:
+        <br />
+        <input
+          className="form-input"
+          type="password"
+          id="password-confirm"
+          name="passwordConfirm"
+          placeholder="Confirm password"
+          value={passwordConfirm}
+          onChange={handleChange}
+          required
+        />
       </label>
 
       {message && <div className="message">{message}</div>}
