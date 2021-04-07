@@ -48,6 +48,7 @@ export const App = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     checkLoggedIn().then(
       async () => {
         // Populate food store from db (needs local fallback as failsafe
