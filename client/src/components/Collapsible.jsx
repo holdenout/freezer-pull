@@ -1,7 +1,13 @@
 import {useRef, useEffect} from "react";
 import "./Collapsible.css";
 
-export const Collapsible = ({open, header, fadeHeader, content, toggleOpen}) => {
+export const Collapsible = ({
+  open,
+  header,
+  fadeHeader,
+  content,
+  toggleOpen,
+}) => {
   const itemRef = useRef(null);
 
   useEffect(() => {
@@ -11,7 +17,9 @@ export const Collapsible = ({open, header, fadeHeader, content, toggleOpen}) => 
   return (
     <div className="collapsible" ref={itemRef}>
       <button
-        className={`btn collapsible-header big-header ${fadeHeader ? "fade" : ""}`}
+        className={`btn collapsible-header big-header ${
+          fadeHeader ? "fade" : ""
+        }`}
         onClick={toggleOpen}
       >
         {header}

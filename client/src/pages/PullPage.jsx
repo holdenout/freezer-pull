@@ -83,7 +83,10 @@ const Content = ({food, isOpen, setIsLoggedIn}) => {
 };
 
 export const PullPage = ({setIsLoggedIn}) => {
-  const [foodData, updatePull, updatePullSubmitted] = useStore(["pull", "pullSubmitted"]);
+  const [foodData, updatePull, updatePullSubmitted] = useStore([
+    "pull",
+    "pullSubmitted",
+  ]);
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
 
