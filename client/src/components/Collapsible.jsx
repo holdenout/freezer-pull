@@ -36,7 +36,7 @@ export const SmallCollapsible = ({open, children, toggleOpen}) => {
         className="btn collapsible-header small-header"
         onClick={toggleOpen}
       >
-        <div className="arrow">{open ? "\uFF0D" : "\uFF0B"}</div>
+        <div className="open-close-toggle">{open ? "\uFF0D" : "\uFF0B"}</div>
         &nbsp;Previous Pull Info
       </button>
       {open && <div className="collapsible-content">{children}</div>}
