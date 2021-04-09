@@ -4,6 +4,20 @@ import {SearchBar} from "./SearchBar.jsx";
 import {ScrollToTopButton} from "./ScrollToTopButton.jsx";
 import "./FoodList.css";
 
+const FoodListItem = ({food, isOpen, fadeOnSubmit, content, toggleOpen}) => {
+  return (
+    <li>
+      <Collapsible
+        open={isOpen === food.sku}
+        header={food.name}
+        fadeHeader={food.pullSubmitted && fadeOnSubmit}
+        content={content({food, isOpen})}
+        toggleOpen={toggleOpen}
+      />
+    </li>
+  );
+};
+
 export const FoodList = ({foodData, fadeOnSubmit, content, children}) => {
   const [isOpen, setOpen] = useState(null);
   const [search, setSearch] = useState("");
@@ -23,15 +37,14 @@ export const FoodList = ({foodData, fadeOnSubmit, content, children}) => {
     })
     .map((food) => {
       return (
-        <li key={food.sku}>
-          <Collapsible
-            open={isOpen === food.sku}
-            header={food.name}
-            fadeHeader={food.pullSubmitted && fadeOnSubmit}
-            content={content({food, isOpen})}
-            toggleOpen={() => toggleOpen(food.sku)}
-          />
-        </li>
+        <FoodListItem
+          key={food.sku}
+          food={food}
+          isOpen={isOpen}
+          fadeOnSubmit={fadeOnSubmit}
+          content={content}
+          toggleOpen={() => toggleOpen(food.sku)}
+        />
       );
     });
 
