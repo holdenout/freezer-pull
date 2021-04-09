@@ -74,7 +74,7 @@ export const App = () => {
             path="/login"
             render={({location}) =>
               isLoggedIn ? (
-                <Redirect to={location.state.referrer} />
+                <Redirect to={location.state ? location.state.referrer : "/"} />
               ) : (
                 <LoginPage setIsLoggedIn={setIsLoggedIn} />
               )
