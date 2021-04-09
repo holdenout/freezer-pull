@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Collapsible} from "./Collapsible.jsx";
+import {SearchBar} from "./SearchBar.jsx";
 import {ScrollToTopButton} from "./ScrollToTopButton.jsx";
 import "./FoodList.css";
 
@@ -36,17 +37,11 @@ export const FoodList = ({foodData, fadeOnSubmit, content, children}) => {
 
   return (
     <div className="food-list">
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search"
-          value={search}
-          onChange={handleSearch}
-        />
-        <span className="clear" onClick={() => setSearch("")}>
-          &#x2715;
-        </span>
-      </div>
+      <SearchBar
+        search={search}
+        handleSearch={handleSearch}
+        clear={() => setSearch("")}
+      />
       <ul className="food-items">{filteredFoodData}</ul>
       {children}
       <ScrollToTopButton />
