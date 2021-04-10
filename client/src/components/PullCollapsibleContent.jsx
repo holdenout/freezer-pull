@@ -4,13 +4,33 @@ import {SmallCollapsible} from "./Collapsible.jsx";
 import {NumberInput} from "./NumberInput.jsx";
 import {FoodPullInfoTable} from "./FoodPullInfoTable.jsx";
 
+const clampNumber = (num, innerPack) => {
+  if (num < 0) {
+    return 0;
+  } else if (num >= 255) {
+    return Math.floor(255 / innerPack) * innerPack;
+  } else {
+    return num;
+  }
+};
+
+const roundAndBoundNumber = (num, innerPack) => {
+  if (num < 0) {
+    return 0;
+  } else if (num >= 255) {
+    return Math.floor(255 / innerPack) * innerPack;
+  } else {
+    return Math.ceil(num / innerPack) * innerPack;
+  }
+};
+
 // Content for collapsibles on pull page
 export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
   const [moreInfo, setMoreInfo] = useState(false);
   const [pull, setPull] = useState(
     food.pullSubmitted
       ? food.pull
-      : Math.ceil((food.par - food.carryover) / food.innerPack) * food.innerPack
+      : roundAndBoundNumber(food.par - food.carryover, food.innerPack)
   );
   const [, updatePull, updatePullSubmitted] = useStore([
     "pull",
@@ -18,11 +38,8 @@ export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
   ]);
 
   // Update temp pull value
-  const handlePullInput = (newPullAmount) => {
-    if (newPullAmount < 0) setPull(0);
-    else if (newPullAmount >= 255) setPull(255);
-    else setPull(newPullAmount);
-  };
+  const handlePullInput = (newPullAmount) =>
+    setPull(clampNumber(newPullAmount));
 
   // Handle change in pull input field
   const handleChange = (event) => {
@@ -32,7 +49,10 @@ export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
 
   // Save pull amount for item
   const handleSave = () => {
-    const updatedFood = updatePull(food, pull);
+    const savedPull = roundAndBoundNumber(pull, food.innerPack);
+
+    setPull(savedPull);
+    const updatedFood = updatePull(food, savedPull);
     updatePullSubmitted(updatedFood, true);
   };
 
