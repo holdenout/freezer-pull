@@ -7,7 +7,9 @@ export const CarryoverCollapsibleContent = ({food, isOpen}) => {
 
   // Update carryover on input change
   const handleCarryoverUpdate = (newCarryover) => {
-    if (newCarryover >= 0) updateCarryover(food, newCarryover);
+    if (newCarryover < 0) updateCarryover(food, 0);
+    else if (newCarryover >= 255) updateCarryover(food, 255);
+    else updateCarryover(food, newCarryover);
   };
 
   // Handle carryover input change

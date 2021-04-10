@@ -19,7 +19,9 @@ export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
 
   // Update temp pull value
   const handlePullInput = (newPullAmount) => {
-    if (newPullAmount >= 0) setPull(newPullAmount);
+    if (newPullAmount < 0) setPull(0);
+    else if (newPullAmount >= 255) setPull(255);
+    else setPull(newPullAmount);
   };
 
   // Handle change in pull input field
