@@ -57,7 +57,9 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
     );
   }, [history, sku, setIsLoggedIn]);
 
-  const rows = foodPullInfo.map((data) => <TableRow key={data.pull_id} data={data} />)
+  const rows = foodPullInfo.map((data) => (
+    <TableRow key={data.pull_id} data={data} />
+  ));
 
   return (
     <>

@@ -28,7 +28,12 @@ exports.executePull = async (req, res) => {
   // create nested array of insert values
   //   -arrays required for mysql module parsing
   const cleanedPullData = req.body.pullData.map(({sku, carryover, pull}) => {
-    return [pull_id, sku, verifyNumberEntry(carryover), verifyNumberEntry(pull)];
+    return [
+      pull_id,
+      sku,
+      verifyNumberEntry(carryover),
+      verifyNumberEntry(pull),
+    ];
   });
 
   FoodItemPull.addPulledFood(cleanedPullData, (err, data) => {
