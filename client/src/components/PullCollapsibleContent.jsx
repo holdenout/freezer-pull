@@ -1,6 +1,7 @@
-import {useState, useEffect, useRef} from "react";
+import {useState} from "react";
 import {useStore} from "../hooks/useStore.js";
 import {SmallCollapsible} from "./Collapsible.jsx";
+import {NumberInput} from "./NumberInput.jsx";
 import {FoodPullInfoTable} from "./FoodPullInfoTable.jsx";
 
 // Content for collapsibles on pull page
@@ -15,12 +16,6 @@ export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
     "pull",
     "pullSubmitted",
   ]);
-
-  // Set focus on input box when collapsible opens
-  const focusRef = useRef(null);
-  useEffect(() => {
-    if (isOpen) focusRef.current.focus();
-  }, [isOpen]);
 
   // Update temp pull value
   const handlePullInput = (newPullAmount) => {
@@ -46,27 +41,12 @@ export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
         <div>Par: {food.par}</div>
       </div>
       <div>
-        <button
-          className="btn incr-decr-btn"
-          onClick={() => handlePullInput(pull - food.innerPack)}
-        >
-          {/* fullwidth hyphen-minus unicode character */}
-          &#xFF0D;
-        </button>
-        <input
-          className="food-input"
-          type="tel"
+        <NumberInput
           value={pull}
           onChange={handleChange}
-          ref={focusRef}
+          onClick={handlePullInput}
+          setFocus={isOpen}
         />
-        <button
-          className="btn incr-decr-btn"
-          onClick={() => handlePullInput(pull + food.innerPack)}
-        >
-          {/* fullwidth plus sign unicode character */}
-          &#xFF0B;
-        </button>
       </div>
       <SmallCollapsible
         open={moreInfo}
