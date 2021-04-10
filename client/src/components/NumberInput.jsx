@@ -1,6 +1,12 @@
 import {useEffect, useRef} from "react";
 
-export const NumberInput = ({value, onClick, onChange, setFocus}) => {
+export const NumberInput = ({
+  value,
+  onClickIncr,
+  onClickDecr,
+  onChange,
+  setFocus,
+}) => {
   const focusRef = useRef(null);
   useEffect(() => {
     if (setFocus) focusRef.current.focus();
@@ -8,10 +14,7 @@ export const NumberInput = ({value, onClick, onChange, setFocus}) => {
 
   return (
     <>
-      <button
-        className="btn incr-decr-btn"
-        onClick={() => onClick(value - 1)}
-      >
+      <button className="btn incr-decr-btn" onClick={onClickDecr}>
         {/* fullwidth hyphen-minus unicode character */}
         &#xFF0D;
       </button>
@@ -22,10 +25,7 @@ export const NumberInput = ({value, onClick, onChange, setFocus}) => {
         onChange={onChange}
         ref={focusRef}
       />
-      <button
-        className="btn incr-decr-btn"
-        onClick={() => onClick(value + 1)}
-      >
+      <button className="btn incr-decr-btn" onClick={onClickIncr}>
         {/* fullwidth plus sign unicode character */}
         &#xFF0B;
       </button>

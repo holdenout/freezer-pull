@@ -21,7 +21,8 @@ export const CarryoverCollapsibleContent = ({food, isOpen}) => {
       <NumberInput
         value={food.carryover}
         onChange={handleInputChange}
-        onClick={handleCarryoverUpdate}
+        onClickIncr={() => handleCarryoverUpdate(food.carryover + 1)}
+        onClickDecr={() => handleCarryoverUpdate(food.carryover - 1)}
         setFocus={isOpen}
       />
     </div>

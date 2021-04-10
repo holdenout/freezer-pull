@@ -44,7 +44,8 @@ export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
         <NumberInput
           value={pull}
           onChange={handleChange}
-          onClick={handlePullInput}
+          onClickIncr={() => handlePullInput(pull + food.innerPack)}
+          onClickDecr={() => handlePullInput(pull - food.innerPack)}
           setFocus={isOpen}
         />
       </div>
