@@ -46,7 +46,7 @@ export const LoginForm = ({setIsLoggedIn}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} autoComplete="off">
       <h2 className="form-title">Login</h2>
 
       <label htmlFor="username">

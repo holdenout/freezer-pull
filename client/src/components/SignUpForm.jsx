@@ -54,7 +54,7 @@ export const SignUpForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} autoComplete="off">
       <h2 className="form-title">Sign Up</h2>
 
       <label htmlFor="new-username">
