@@ -17,12 +17,21 @@ exports.executePull = async (req, res) => {
 
   if (!pull_id) return;
 
+  const verifyNumberEntry = (num) => {
+    const parsedNum = parseInt(num);
+    if (isNaN(parsedNum)) return 0;
+    else if (parsedNum < 0) return 0;
+    else if (parsedNum > 255) return 255;
+    else return 0;
+  };
+
   // create nested array of insert values
-  const pullData = req.body.pullData.map(({sku, carryover, pull}) => {
-    return [pull_id, sku, carryover, pull];
+  //   -arrays required for mysql module parsing
+  const cleanedPullData = req.body.pullData.map(({sku, carryover, pull}) => {
+    return [pull_id, sku, verifyNumberEntry(carryover), verifyNumberEntry(pull)];
   });
 
-  FoodItemPull.addPulledFood(pullData, (err, data) => {
+  FoodItemPull.addPulledFood(cleanedPullData, (err, data) => {
     if (err) {
       res.status(500).send({
         message:
