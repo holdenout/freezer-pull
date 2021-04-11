@@ -42,6 +42,7 @@ exports.executePull = async (req, res) => {
         message:
           err.message || "Error ocurred while inserting food item pull info.",
       });
+      return;
     }
 
     res.status(201).send(data);
