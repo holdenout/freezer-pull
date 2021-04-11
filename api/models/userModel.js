@@ -8,12 +8,12 @@ const User = ({username, password}) => {
 User.create = (user, res) => {
   db.query("INSERT INTO users SET ?;", user, (err, data) => {
     if (err) {
-      console.log("Error: ", err);
+      console.log("\n\n=========\n  Error  \n=========\n", err, "\n\n");
       res(err, null);
       return;
     }
 
-    console.log("User created.");
+    console.log("-> User created.");
     res(null, data);
   });
 };
@@ -24,13 +24,13 @@ User.getByName = (name, res) => {
     name,
     (err, data) => {
       if (err) {
-        console.log("Error: ", err);
+        console.log("\n\n=========\n  Error  \n=========\n", err, "\n\n");
         res(err, null);
         return;
       }
 
       if (data.length) {
-        console.log("Found user: ", name);
+        console.log("-> Found user:", name);
         res(null, data[0]);
         return;
       }

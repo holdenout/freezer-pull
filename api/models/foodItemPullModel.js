@@ -9,12 +9,12 @@ FoodItemPull.addPulledFood = (foodPullData, res) => {
     [foodPullData],
     (err, dbRes) => {
       if (err) {
-        console.log("Error: ", err);
+        console.log("\n\n=========\n  Error  \n=========\n", err, "\n\n");
         res(err, null);
         return;
       }
 
-      console.log("Added food pull data.");
+      console.log("-> Added food pull data.");
       res(null, dbRes);
     }
   );
@@ -32,12 +32,12 @@ FoodItemPull.getFoodPullInfo = (sku, numberRequested, res) => {
     [sku, numberRequested],
     (err, data) => {
       if (err) {
-        console.log("Error:", err);
+        console.log("\n\n=========\n  Error  \n=========\n", err, "\n\n");
         res(err, null);
         return;
       }
 
-      console.log("Retrieved pull data for sku:", sku);
+      console.log("-> Retrieved pull data for sku:", sku);
       res(null, data);
     }
   );

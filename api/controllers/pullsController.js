@@ -62,7 +62,7 @@ exports.getFoodPullInfo = (req, res) => {
       return;
     }
 
-    console.log("Sending food pull info");
+    console.log("-> Sending food pull info");
     res.status(200).send(data);
   });
 };

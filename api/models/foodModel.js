@@ -15,12 +15,12 @@ Food.getAll = (res) => {
      FROM food_items WHERE active=true;`,
     (err, data) => {
       if (err) {
-        console.log("Error: ", err);
+        console.log("\n\n=========\n  Error  \n=========\n", err, "\n\n");
         res(err, null);
         return;
       }
 
-      console.log("Active food items: ", data, "\n");
+      console.log("-> Active food items sent");
       res(null, data);
     }
   );
@@ -34,13 +34,13 @@ Food.getBySku = (sku, res) => {
     sku,
     (err, data) => {
       if (err) {
-        console.log("Error: ", err);
+        console.log("\n\n=========\n  Error  \n=========\n", err, "\n\n");
         res(err, null);
         return;
       }
 
       if (data.length) {
-        console.log("Found food: ", data[0], "\n");
+        console.log("-> Found food: ", data[0]);
         res(null, data);
         return;
       }

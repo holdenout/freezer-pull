@@ -9,12 +9,12 @@ Pull.create = (user, res) => {
     [user],
     (err, data) => {
       if (err) {
-        console.log("Error: ", error);
+        console.log("\n\n=========\n  Error  \n=========\n", error, "\n\n");
         res(err, null);
         return;
       }
 
-      console.log("Pull created.");
+      console.log("-> Pull created.");
       res(null, data);
     }
   );
