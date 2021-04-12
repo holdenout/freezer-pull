@@ -17,15 +17,15 @@ export const authAdapter = {
     try {
       const token = JSON.parse(localStorage.getItem("user")).accessToken;
 
-      api.get("/verifyLogin", {headers: {"x-access-token": token}}).then(
-        (response) => {
+      api
+        .get("/verifyLogin", {headers: {"x-access-token": token}})
+        .then((response) => {
           res(null, response.status === 200);
-        },
-        (err) => {
+        })
+        .catch((err) => {
           console.log(err);
           res(err, false);
-        }
-      );
+        });
     } catch (err) {
       console.log("No signed in user");
       res(err, false);
