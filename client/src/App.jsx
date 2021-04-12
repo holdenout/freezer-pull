@@ -34,31 +34,23 @@ export const App = () => {
   const {pathname} = useLocation();
   const [isLoading, setIsLoading] = useState(true);
 
-  const checkLoggedIn = async () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      console.log("No signed in user");
-      return;
-    }
-
-    const token = user.accessToken;
-    await api.verifyLogin(token).then((res) => {
-      if (res.status === 200) setIsLoggedIn(true);
-    });
-  };
-
   useEffect(() => {
-    setIsLoading(true);
-    checkLoggedIn().then(
-      async () => {
-        // Populate food store from db (needs local fallback as failsafe
-        if (isLoggedIn) {
+    if (!isLoggedIn) {
+      setIsLoading(true);
+
+      api.verifyLogin(async (err, verified) => {
+        if (err) {
+          setIsLoading(false);
+        } else if (verified) {
+          setIsLoggedIn(true);
+          // Populate food store from db (needs local fallback as failsafe)
           await populateFoodStore();
           setIsLoading(false);
-        } else setIsLoading(false);
-      },
-      () => setIsLoading(false)
-    );
+        } else {
+          setIsLoading(false);
+        }
+      });
+    }
   }, [isLoggedIn]);
 
   return (
