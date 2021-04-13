@@ -35,22 +35,21 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      setIsLoading(true);
+    setIsLoading(true);
+    
+    api.verifyLogin(async (err, verified) => {
+      if (verified) setIsLoggedIn(true);
 
-      api.verifyLogin(async (err, verified) => {
-        if (err) {
-          setIsLoading(false);
-        } else if (verified) {
-          setIsLoggedIn(true);
-          // Populate food store from db (needs local fallback as failsafe)
-          await populateFoodStore();
-          setIsLoading(false);
-        } else {
-          setIsLoading(false);
-        }
-      });
-    }
+      setIsLoading(false);
+    })
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    if (isLoggedIn) populateFoodStore();
+
+    setIsLoading(false);
   }, [isLoggedIn]);
 
   return (
