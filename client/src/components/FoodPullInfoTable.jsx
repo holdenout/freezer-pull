@@ -33,6 +33,7 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
   const history = useHistory();
 
   useEffect(() => {
+    let isMounted = true;
     setIsLoading(true);
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -46,15 +47,21 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
     const token = user.accessToken;
     api.foodPullInfo(sku, 5, token).then(
       ({data}) => {
-        setFoodPullInfo(data);
-        setIsLoading(false);
+        if (isMounted) {
+          setFoodPullInfo(data);
+          setIsLoading(false);
+        }
       },
       (err) => {
         console.log(err);
-        setIsLoggedIn(false);
-        history.push("/login", {referrer: "/pull"});
+        if (isMounted) {
+          setIsLoggedIn(false);
+          history.push("/login", {referrer: "/pull"});
+        }
       }
     );
+
+    return () => isMounted = false;
   }, [history, sku, setIsLoggedIn]);
 
   const rows = foodPullInfo.map((data) => (
