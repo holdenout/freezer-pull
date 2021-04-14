@@ -36,20 +36,20 @@ export const App = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    
-    api.verifyLogin(async (err, verified) => {
+
+    api.verifyLogin((err, verified) => {
       if (verified) setIsLoggedIn(true);
 
       setIsLoading(false);
-    })
+    });
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
+    if (isLoggedIn) {
+      setIsLoading(true);
 
-    if (isLoggedIn) populateFoodStore();
-
-    setIsLoading(false);
+      populateFoodStore().then(() => setIsLoading(false));
+    }
   }, [isLoggedIn]);
 
   return (
