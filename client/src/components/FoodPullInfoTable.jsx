@@ -61,7 +61,7 @@ export const FoodPullInfoTable = ({sku, setIsLoggedIn}) => {
       }
     );
 
-    return () => isMounted = false;
+    return () => (isMounted = false);
   }, [history, sku, setIsLoggedIn]);
 
   const rows = foodPullInfo.map((data) => (
