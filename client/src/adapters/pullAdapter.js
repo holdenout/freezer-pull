@@ -24,11 +24,27 @@ export const pullAdapter = {
     }
   },
 
-  foodPullInfo: (sku, numberRequested, token) =>
-    api.get("/foodPullInfo", {
-      params: {sku: sku, numberRequested: numberRequested},
-      headers: {"x-access-token": token},
-    }),
+  foodPullInfo: (sku, numberRequested, res) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("user")).accessToken;
+
+      api
+        .get("/foodPullInfo", {
+          params: {sku: sku, numberRequested: numberRequested},
+          headers: {"x-access-token": token},
+        })
+        .then((response) => {
+          res(null, response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+          res(err, null);
+        });
+    } catch (err) {
+      console.log(err);
+      res(err, null);
+    }
+  },
 };
 
 export default pullAdapter;
