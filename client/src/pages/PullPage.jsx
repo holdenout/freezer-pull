@@ -4,6 +4,7 @@ import {useStore} from "../hooks/useStore.js";
 import api from "../adapters/pullAdapter.js";
 import FoodList from "../components/FoodList.jsx";
 import {PullCollapsibleContent} from "../components/PullCollapsibleContent.jsx";
+import {roundAndBoundNumber} from "../util/roundAndBound.js";
 import loader from "../assets/coffeeLoader.gif";
 
 export const PullPage = ({setIsLoggedIn}) => {
@@ -20,7 +21,8 @@ export const PullPage = ({setIsLoggedIn}) => {
     //    is best for good data display demonstration
     const updatedData = foodData.map((food) => {
       if (!food.pullSubmitted) {
-        let newFood = updatePull(food, food.par - food.carryover);
+        const autoPullAmount = roundAndBoundNumber(food.par - food.carryover, food.innerPack);
+        let newFood = updatePull(food, autoPullAmount);
         newFood = updatePullSubmitted(newFood, true);
         return newFood;
       } else {

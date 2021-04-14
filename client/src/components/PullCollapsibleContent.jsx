@@ -3,26 +3,7 @@ import {useStore} from "../hooks/useStore.js";
 import {SmallCollapsible} from "./Collapsible.jsx";
 import {NumberInput} from "./NumberInput.jsx";
 import {FoodPullInfoTable} from "./FoodPullInfoTable.jsx";
-
-const clampNumber = (num, innerPack) => {
-  if (num < 0) {
-    return 0;
-  } else if (num >= 255) {
-    return Math.floor(255 / innerPack) * innerPack;
-  } else {
-    return num;
-  }
-};
-
-const roundAndBoundNumber = (num, innerPack) => {
-  if (num < 0) {
-    return 0;
-  } else if (num >= 255) {
-    return Math.floor(255 / innerPack) * innerPack;
-  } else {
-    return Math.ceil(num / innerPack) * innerPack;
-  }
-};
+import {boundNumber, roundAndBoundNumber} from "../util/roundAndBound.js";
 
 // Content for collapsibles on pull page
 export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
@@ -39,7 +20,7 @@ export const PullCollapsibleContent = ({food, isOpen, setIsLoggedIn}) => {
 
   // Update temp pull value
   const handlePullInput = (newPullAmount) =>
-    setPull(clampNumber(newPullAmount));
+    setPull(boundNumber(newPullAmount));
 
   // Handle change in pull input field
   const handleChange = (event) => {
