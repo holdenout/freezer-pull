@@ -14,19 +14,22 @@ export const PullPage = ({setIsLoggedIn}) => {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (data) => {
+  const handleSubmit = () => {
     // Set all unpulled items to pull par - carryover
     //   -this would be an undesired operation in practice, but
     //    is best for good data display demonstration
-    foodData.forEach((food) => {
+    const updatedData = foodData.map((food) => {
       if (!food.pullSubmitted) {
-        updatePull(food, food.par - food.carryover);
-        updatePullSubmitted(food, true);
+        let newFood = updatePull(food, food.par - food.carryover);
+        newFood = updatePullSubmitted(newFood, true);
+        return newFood;
+      } else {
+        return food;
       }
     });
 
     setIsLoading(true);
-    api.submitPull(data, (err) => {
+    api.submitPull(updatedData, (err) => {
       if (err) {
         setIsLoading(false);
         setIsLoggedIn(false);
@@ -57,7 +60,7 @@ export const PullPage = ({setIsLoggedIn}) => {
         ) : (
           <button
             className="btn submit-btn next-btn"
-            onClick={() => handleSubmit(foodData)}
+            onClick={() => handleSubmit()}
           >
             Submit pull
           </button>
