@@ -14,7 +14,7 @@ export const PullPage = ({setIsLoggedIn}) => {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = (data) => {
     // Set all unpulled items to pull par - carryover
     //   -this would be an undesired operation in practice, but
     //    is best for good data display demonstration
@@ -25,28 +25,19 @@ export const PullPage = ({setIsLoggedIn}) => {
       }
     });
 
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      console.log("No signed in user");
-      setIsLoggedIn(false);
-      history.push("/login", {referrer: "/pull"});
-      return;
-    }
-
     setIsLoading(true);
-    const token = user.accessToken;
-    try {
-      await api.submitPull(data, token);
-    } catch (err) {
-      console.log(err);
+    api.submitPull(data, (err) => {
+      if (err) {
+        setIsLoading(false);
+        setIsLoggedIn(false);
+        history.push("/login", {referrer: "/pull"});
+        return;
+      }
+
       setIsLoading(false);
-      setIsLoggedIn(false);
-      history.push("/login", {referrer: "/pull"});
+      history.push("/");
       return;
-    }
-    setIsLoading(false);
-    history.push("/");
-    return;
+    });
   };
 
   return (
