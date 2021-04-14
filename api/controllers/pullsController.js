@@ -22,7 +22,7 @@ exports.executePull = async (req, res) => {
     if (isNaN(parsedNum)) return 0;
     else if (parsedNum < 0) return 0;
     else if (parsedNum > 255) return 255;
-    else return 0;
+    else return num;
   };
 
   // create nested array of insert values
