@@ -40,3 +40,20 @@ Routing is implemented using [React Router](https://reactrouter.com/). The user 
 ### Pull Save/Submit Implementations
 
 ### Previous Data Lookup
+
+## Development Scripts
+### `npm start`
+
+Start the Express server.
+
+### `npm run startdev`
+
+Start the Express server with nodemon for more descriptive logging.
+
+### `npm run runall`
+
+Start the Express server with nodemon and the React frontend in development mode.
+
+### `npm run format`
+
+Run the CLI for [`prettier`](https://prettier.io/) on the backend files.
