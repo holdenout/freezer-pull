@@ -93,7 +93,7 @@ export const SignUpForm = () => {
         />
         <ul className="form-input-info">
           <li>must be at least 5 characters</li>
-          <li>can contain letters, numbers, and symbols</li>
+          <li>can contain letters, numbers, and any of @$!%*#?&</li>
         </ul>
       </label>
 
@@ -120,7 +120,7 @@ export const SignUpForm = () => {
         </div>
       ) : (
         <div>
-          <input className="btn submit-btn" type="submit" value="Submit" />
+          <input className="btn submit-btn" type="submit" value="Sign Up" />
         </div>
       )}
     </form>

@@ -87,7 +87,7 @@ export const LoginForm = ({setIsLoggedIn}) => {
         </div>
       ) : (
         <div>
-          <input className="btn submit-btn" type="submit" value="Submit" />
+          <input className="btn submit-btn" type="submit" value="Login" />
         </div>
       )}
     </form>
