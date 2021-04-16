@@ -65,6 +65,8 @@ On final submission, any unsaved values are saved with the default amount, and t
 There are 2 hidden easter eggs on the Sign Up section, if you can find them...
 
 ## Development Scripts
+In the project directory you can run:
+
 ### `npm start`
 
 Start the Express server.
