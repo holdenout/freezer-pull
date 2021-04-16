@@ -21,7 +21,10 @@ export const PullPage = ({setIsLoggedIn}) => {
     //    is best for good data display demonstration
     const updatedData = foodData.map((food) => {
       if (!food.pullSubmitted) {
-        const autoPullAmount = roundAndBoundNumber(food.par - food.carryover, food.innerPack);
+        const autoPullAmount = roundAndBoundNumber(
+          food.par - food.carryover,
+          food.innerPack
+        );
         let newFood = updatePull(food, autoPullAmount);
         newFood = updatePullSubmitted(newFood, true);
         return newFood;
