@@ -30,16 +30,39 @@ If any api call is attempted and fails due to authentication issues, the user wi
 
 After a successful login, the user will be redirected back to the referring page. If there is no referring page, they will be redirected to the home page.
 
+On logout the user is redirected to the login page.
+
 ### Routing
 Routing is implemented using [React Router](https://reactrouter.com/). The user can move forward through the app using the buttons at the bottom of each page, and the back button at the top left of each page. The browser back and forward buttons work as well.
 
+Each page is automatically scrolled to the top on mount.
+
 ### Collapsible Sections
+Each food item has its own collapsible section that can be opened/closed by clicking anywhere the item's header box. The item snaps to the top on opening and automatically focuses on the input section.
 
-### Carryover Auto Save
+### Search
+The search bar at the top filters the items dynamically, and can be cleared with the button at the right edge of the box.
 
-### Pull Save/Submit Implementations
+### Scroll To Top
+The scroll to top button appears in the bottom right when not already at the top of the page and scrolls to the top as expected.
 
-### Previous Data Lookup
+### Carryover Content
+The inner content in each collapsible on the Carryover page allows number only input using the keyboard or the increment/decrement buttons on either side. The updated carryover is automatically saved in the local store on changes.
+
+### Pull Content
+The inner content in each collapsible on the Pull page allows number only input using the keyboard or the increment/decrement buttons on either side. The input is automatically set to the value of the par minus carryover and bounded within 0 to 255. The pull is not fully set in the local store until the amount is saved for that item.
+
+#### Inner Package Rounding
+If the item comes in an inner package amount greater than 1, the increment/decrement buttons change the value by that amount. If input is put in manually, the amount is rounded to a multiple of that inner package value after the pull amount is saved.
+
+#### Previous Data Lookup
+A smaller collapsible is embedded which, on each opening, fetches and displays information for the previous 5 pulls of that item.
+
+### Pull Submit
+On final submission, any unsaved values are saved with the default amount, and then the full pull information is sent for storage to the server.
+
+### Easter Eggs
+There are 2 hidden easter eggs on the Sign Up section, if you can find them...
 
 ## Development Scripts
 ### `npm start`
