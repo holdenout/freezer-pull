@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -5,9 +7,6 @@ const cors = require("cors");
 const foodRouter = require("./api/routes/foodRoutes.js");
 const pullRouter = require("./api/routes/pullRoutes.js");
 const authRouter = require("./api/routes/authRoutes.js");
-
-// Load .env vars to process.env
-require("dotenv").config();
 
 const app = express();
 
