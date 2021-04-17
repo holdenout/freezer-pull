@@ -1,8 +1,9 @@
 # Freezer Inventory Pull
 Pull from freezer inventory for front of house food sales.
 
-This is a mockup of an app used at work and an attempt to improve on the design and features. It is intended to be used  on a mobile device.
+This is a mockup of an app used multiple times at my work every day and an attempt to improve on the design and features. It is intended to be used  on a mobile device.
 
+- **[How To Use](#how-to-use)**
 - **[App Features](#app-features)**
     - [Sign Up](#sign-up)
     - [Persistent Login/Logout](#persistent-login/logout)
@@ -16,6 +17,14 @@ This is a mockup of an app used at work and an attempt to improve on the design 
     - [Pull Submit](#pull-submit)
     - [Easter Eggs](#easter-eggs)
 - **[Development Scripts](#development-scripts)**
+
+## How To Use
+1. Sign up if you have no account, or log in if you do.
+2. Continue to the carryover page, and then update each item with the amount that will not expire through the next day.
+3. Continue to the pull page and select the number of items that you are pulling from the freezer to thaw for the next day.
+    - The amount to pull can be decided based on the par
+    - If the par seems inaccurate, the previous 5 pulls for that item can be viewed in the expandable section.
+4. Submit the pull to send your final data to the server.
 
 ## App Features
 ### Sign Up
