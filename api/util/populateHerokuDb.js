@@ -1,6 +1,7 @@
+require("dotenv").config();
+
 const mysql = require("mysql");
 const dbConfig = require("../config/dbConfig.js");
-
 const {items} = require("./sampleFoodData.json");
 
 /* Populate database */
@@ -83,4 +84,20 @@ const initDb = () => {
   });
 };
 
-initDb();
+const rl = require("readline").createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question(
+  "If you would like to clear the database, that must be done manually. " +
+    "This will not overwrite anything. Continue?\n(Enter y for yes) ",
+  (answer) => {
+    if (answer.toLowerCase() !== "y") {
+      rl.close();
+      console.log("Halted");
+    } else {
+      initDb();
+    }
+  }
+);
