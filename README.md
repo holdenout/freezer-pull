@@ -3,8 +3,19 @@ Pull from freezer inventory for front of house food sales.
 
 This is a mockup of an app used at work and an attempt to improve on the design and features. It is intended to be used  on a mobile device.
 
-**[App Features](#app-features)**</br>
-**[Development Scripts](#development-scripts)**
+- **[App Features](#app-features)**
+    - [Sign Up](#sign-up)
+    - [Persistent Login/Logout](#persistent-login/logout)
+    - [Redirect Based on Authentication](#redirect-based-on-authentication)
+    - [Routing](#routing)
+    - [Collapsible Sections](#collapsible-sections)
+    - [Search](#search)
+    - [Scroll To Top](#scroll-to-top)
+    - [Carryover Content](#carryover-content)
+    - [Pull Content](#pull-content)
+    - [Pull Submit](#pull-submit)
+    - [Easter Eggs](#easter-eggs)
+- **[Development Scripts](#development-scripts)**
 
 ## App Features
 ### Sign Up
