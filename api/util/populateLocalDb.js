@@ -1,6 +1,7 @@
+require("dotenv").config();
+
 const mysql = require("mysql");
 const dbConfig = require("../config/dbConfig.js");
-
 const {items} = require("./sampleFoodData.json");
 
 /* Create and populate database */
