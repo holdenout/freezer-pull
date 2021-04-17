@@ -102,3 +102,7 @@ Start the Express server with nodemon and the React frontend in development mode
 ### `npm run format`
 
 Run the CLI for [`prettier`](https://prettier.io/) on the backend files.
+
+### `npm run populateLocalDb`
+
+Create a local database and populate it with tables and sample data. You must have your .env file properly set up in order for this to work. See [`/.env.example`](https://github.com/holdenout/freezer-pull/blob/main/.env.example) for what should be included.
