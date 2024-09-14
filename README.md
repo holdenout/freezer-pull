@@ -1,4 +1,7 @@
 # Freezer Inventory Pull
+
+# Currently being fixed due to deprecation!!!
+
 Pull from freezer inventory for front of house food sales.
 
 This is a mockup of an app used multiple times at my work every day and an attempt to improve on the design and features. It is intended to be used  on a mobile device.
