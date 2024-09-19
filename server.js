@@ -24,7 +24,7 @@ app.use((req, res, next) =>
 // enable CORS for react dev environment
 // not needed if client is served from backend
 if (process.env.NODE_ENV !== "production") {
-  app.use(cors({origin: "http://localhost:3000"}));
+  app.use(cors({origin: "http://localhost:5173"}));
 }
 
 app.use("/food", foodRouter);
@@ -32,7 +32,7 @@ app.use("/pull", pullRouter);
 app.use("/auth", authRouter);
 
 if (process.env.NODE_ENV === "production") {
-  const buildPath = "/client/build";
+  const buildPath = "/client/dist";
   app.use(express.static(path.join(__dirname, buildPath)));
   app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, buildPath, "index.html"));

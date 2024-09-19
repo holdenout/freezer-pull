@@ -1,3 +1,4 @@
+## This has been updated to replace CRA with Vite
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Development Scripts
