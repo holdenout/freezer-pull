@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "startdev": "nodemon server.js",
-    "runall": "nodemon server.js & npm start --prefix ./client",
+    "runall": "nodemon server.js & npm run dev --prefix ./client",
     "runprod": "NODE_ENV=production nodemon server.js",
     "formatcheck": "npx prettier --check server.js \"api/**/*\"",
     "format": "npx prettier --write server.js \"api/**/*\"",
