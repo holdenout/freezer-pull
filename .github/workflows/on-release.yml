@@ -24,7 +24,10 @@ jobs:
         run: npm run buildClient
 
       - name: Commit dist
-        run: git add -f ./client/dist && git commit -m "Add dist"
+        run: |
+          git config user.email "holdensheftel@gmail.com"
+          git add -f ./client/dist
+          git commit -m "Add dist"
 
       - name: Deploy to Heroku
         uses: AkhileshNS/heroku-deploy@v3.13.15
