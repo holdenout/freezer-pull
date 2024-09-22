@@ -34,7 +34,7 @@ jobs:
         uses: AkhileshNS/heroku-deploy@v3.13.15
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          beroku_app_name: "freezer-pull"
+          heroku_app_name: "freezer-pull"
           heroku-email: holdensheftel@gmail.com
 
 
