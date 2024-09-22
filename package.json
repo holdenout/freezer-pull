@@ -14,7 +14,8 @@
     "formatcheck": "npx prettier --check server.js \"api/**/*\"",
     "format": "npx prettier --write server.js \"api/**/*\"",
     "populateLocalDb": "node ./api/util/populateLocalDb.js",
-    "populateHerokuDb": "node ./api/util/populateHerokuDb.js"
+    "populateHerokuDb": "node ./api/util/populateHerokuDb.js",
+    "buildClient": "npm ci --prefix ./client && npm run build --prefix ./client"
   },
   "repository": {
     "type": "git",
