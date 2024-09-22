@@ -25,7 +25,8 @@ jobs:
 
       - name: Commit dist
         run: |
-          git config user.email "holdensheftel@gmail.com"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
           git add -f ./client/dist
           git commit -m "Add dist"
 
